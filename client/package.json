@@ -1,0 +1,17 @@
+{
+  "name": "nft-client",
+  "version": "1.0.0",
+  "description": "NFT client for NFT game",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server public",
+    "build": "docker build -t nft-client ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "http-server": "^14.1.0"
+  }
+}

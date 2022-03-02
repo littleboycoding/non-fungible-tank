@@ -1,0 +1,12 @@
+{
+  "name": "nft",
+  "version": "1.0.0",
+  "description": "Non-fungible tank (NFT) an nft based tank game.",
+  "scripts": {
+    "start": "docker compose up",
+    "dev": "docker compose -f docker-compose-dev.yaml up"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  wss:
+    build:
+      context: ./server
+    command: [ "npm", "run", "dev" ]
+    container_name: nft-client-dev
+    expose:
+      - 8080
+    environment:
+      - PORT=8080
+    ports:
+      - 8080:8080
+
+  client:
+    build: ./client
+    container_name: nft-server-dev
+    depends_on:
+      - wss
+    volumes:
+      - ./client/public:/client/public
+    expose:
+      - 5000
+    environment:
+      - PORT=5000
+    ports:
+      - 5000:5000

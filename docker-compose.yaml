@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  wss:
+    build: ./server
+    expose:
+      - 8080
+    environment:
+      - PORT=8080
+    ports:
+      - 8080:8080
+
+  client:
+    build: ./client
+    depends_on:
+      - wss
+    expose:
+      - 5000
+    environment:
+      - PORT=5000
+    ports:
+      - 5000:5000
