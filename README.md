@@ -1,1 +1,1 @@
-# Chip - NFT based game
+# Non-fungible Tank
