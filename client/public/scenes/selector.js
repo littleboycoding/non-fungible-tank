@@ -3,21 +3,22 @@ import { Blob, BlobText } from "../chip/index.js";
 import { buttonBehavior } from "../blob/behavior.js";
 import { ethers } from "../libs/ethers-5.2.esm.min.js";
 import scenes from "./index.js";
+import NFTMock from "../mocks/nft.js";
 
-const TEST_URI = "/examples/everforest/metadata.json";
+// Configurable constants
 const NFT_ADDRESS = "0x19b87B22110142E6334E3eDa97313AacfeD2f3F2";
-let nftContract;
-
-function deployBehavior(chip, button, address) {
-  if (button.hovering && chip.mousedown.has("Left")) {
-    scenes.battleground(chip, address, chip.metadata);
-  }
-}
+const DEV = true;
 
 function wait(ms) {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
+}
+
+function deployBehavior(chip, button) {
+  if (button.hovering && chip.mousedown.has("Left")) {
+    scenes.battleground(chip, chip.address, chip.metadata);
+  }
 }
 
 function navigateBehavior(
@@ -29,7 +30,7 @@ function navigateBehavior(
   back,
   next
 ) {
-  const fn = async (chip, button, num) => {
+  return async (chip, button, count) => {
     const hover = chip.utils.isCollision(
       {
         x: chip.mousePosition.x,
@@ -43,7 +44,8 @@ function navigateBehavior(
     );
     if (hover) {
       if (chip.mousedown.has("Left")) {
-        chip.tankIndex += num;
+        chip.mousedown.delete("Left");
+        chip.tankIndex += count;
         if (chip.tankIndex >= chip.totalTank) chip.tankIndex = 0;
         if (chip.tankIndex < 0) chip.tankIndex = chip.totalTank - 1;
 
@@ -56,17 +58,16 @@ function navigateBehavior(
         next.destroyed = true;
         spinner.destroyed = false;
 
-        const tokenId = await nftContract.tokenOfOwnerByIndex(
-          await nftContract.signer.getAddress(),
+        const tokenId = await chip.contract.tokenOfOwnerByIndex(
+          chip.address,
           chip.tankIndex
         );
-        const uri = await nftContract.tokenURI(tokenId);
+        chip.metadata = await chip.contract.tokenURI(tokenId);
         const [attribute] = await Promise.all([
-          fetch(uri).then((res) => res.json()),
+          fetch(chip.metadata).then((res) => res.json()),
           wait(500), // prevent flicker
         ]);
         const sprite = await fetchAsBitmap(attribute.image);
-        chip.metadata = uri;
         preview.sprite = sprite;
         name.text = attribute.name;
         description.text = attribute.description;
@@ -80,8 +81,12 @@ function navigateBehavior(
       }
     }
   };
+}
 
-  return fn;
+function getABI() {
+  return fetch("/abi/NFT.json")
+    .then((res) => res.json())
+    .then((json) => json.abi);
 }
 
 async function main(chip, provider, signer) {
@@ -89,27 +94,23 @@ async function main(chip, provider, signer) {
   chip.scene = "selector";
   chip.tankIndex = 0;
 
-  const address = TEST_URI
-    ? (Math.random() * 1000).toString()
-    : await signer.getAddress();
-  const network = await provider.getNetwork();
-
-  const nftAbi = await fetch("/abi/NFT.json")
-    .then((res) => res.json())
-    .then((json) => json.abi);
-  nftContract = new ethers.Contract(NFT_ADDRESS, nftAbi, signer);
-
-  chip.totalTank = TEST_URI
-    ? 1
-    : parseInt(await nftContract.balanceOf(address));
+  const mock = DEV && new NFTMock();
+  chip.address = DEV ? mock.getFakeUserAddress() : await signer.getAddress();
+  chip.network = DEV
+    ? mock.getMockupNetworkName()
+    : await provider.getNetwork().then((n) => n.name);
+  chip.contract = DEV
+    ? mock
+    : new ethers.Contract(NFT_ADDRESS, await getABI(), signer);
+  chip.totalTank = await chip.contract.balanceOf(chip.address);
 
   const Owner = new BlobText(
     "owner",
-    "Address " + address.slice(0, 5) + "..." + address.slice(-5)
+    "Address " + chip.address.slice(0, 5) + "..." + chip.address.slice(-5)
   );
   const Network = new BlobText(
     "owner",
-    "Network " + network.name[0].toUpperCase() + network.name.slice(1)
+    "Network " + chip.network[0].toUpperCase() + chip.network.slice(1)
   );
 
   Owner.fillStyle = "white";
@@ -145,13 +146,14 @@ async function main(chip, provider, signer) {
 
   chip.spawn(Spinner, 300 - spinner.width / 2, 300 - spinner.height / 2);
 
-  const tokenId =
-    !TEST_URI &&
-    (await nftContract.tokenOfOwnerByIndex(address, chip.tankIndex));
-  const uri = TEST_URI || (await nftContract.tokenURI(tokenId));
+  const tokenId = await chip.contract.tokenOfOwnerByIndex(
+    chip.address,
+    chip.tankIndex
+  );
+  console.log(tokenId.toString());
+  chip.metadata = await chip.contract.tokenURI(tokenId);
 
-  const attribute = await fetch(uri).then((res) => res.json());
-  chip.metadata = uri;
+  const attribute = await fetch(chip.metadata).then((res) => res.json());
   const tank = await fetchAsBitmap(attribute.image);
   const Preview = new Blob("preview", tank).addBehavior((_, tank) => {
     tank.angle += 1.5;
@@ -173,7 +175,7 @@ async function main(chip, provider, signer) {
   const deployHover = await fetchAsBitmap("/assets/deploy_hover.png");
   const Deploy = new Blob("deploy", deploy)
     .addBehavior(buttonBehavior)
-    .addBehavior((chip, button) => deployBehavior(chip, button, address, uri));
+    .addBehavior((chip, button) => deployBehavior(chip, button));
   Deploy.hovering = true;
   Deploy.notHover = deploy;
   Deploy.hover = deployHover;
