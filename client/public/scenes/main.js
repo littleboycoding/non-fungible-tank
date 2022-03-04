@@ -27,6 +27,13 @@ async function signButtonBehavior(chip, button) {
   }
 }
 
+function openSeaBehavior(chip, button) {
+  if (button.hovering && chip.mousedown.has("Left")) {
+    chip.mousedown.delete("Left");
+    window.open("https://testnets.opensea.io/collection/non-fungible-tank");
+  }
+}
+
 async function main(chip) {
   chip.cleanup();
   chip.scene = "main";
@@ -37,6 +44,10 @@ async function main(chip) {
   const signButtonHoverBitmap = await fetchAsBitmap(
     "/assets/sign_with_metamask_hover.png"
   );
+  const openSeaBitmap = await fetchAsBitmap("/assets/browse_on_opensea.png");
+  const openSeaHoverBitmap = await fetchAsBitmap(
+    "/assets/browse_on_opensea_hover.png"
+  );
   const title = new Blob("title", titleBitmap);
   const signButton = new Blob("signIn", signButtonBitmap, {
     signing: false,
@@ -46,8 +57,15 @@ async function main(chip) {
   signButton.notHover = signButtonBitmap;
   signButton.hover = signButtonHoverBitmap;
 
+  const openSeaButton = new Blob("openSea", openSeaBitmap)
+    .addBehavior(buttonBehavior)
+    .addBehavior(openSeaBehavior);
+  openSeaButton.notHover = openSeaBitmap;
+  openSeaButton.hover = openSeaHoverBitmap;
+
   chip.spawn(title, 300 - title.sprite.width / 2, 50);
   chip.spawn(signButton, 300 - signButton.sprite.width / 2, 330);
+  chip.spawn(openSeaButton, 300 - signButton.sprite.width / 2, 395);
 }
 
 export default main;
