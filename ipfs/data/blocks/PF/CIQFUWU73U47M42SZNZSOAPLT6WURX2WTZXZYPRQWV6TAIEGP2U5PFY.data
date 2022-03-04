@@ -1,0 +1,23 @@
+
+ÿ÷{
+  "name": "Everforest",
+  "description": "Reliable, classic tank",
+  "image": "/examples/everforest/everforest.png",
+  "health": 10,
+  "speed": 1.5,
+  "rotateSpeed": 2.5,
+  "projectileSpeed": 2.5,
+  "firerate": 500,
+  "damage": 2,
+  "cannonOrigin": {
+    "x": 9.515,
+    "y": 9.475
+  },
+  "assets": {
+    "behavior": "/examples/everforest/behavior.js",
+    "body": "/examples/everforest/body.png",
+    "cannon": "/examples/everforest/cannon.png",
+    "bullet": "/examples/everforest/bullet.png"
+  }
+}
+÷

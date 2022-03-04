@@ -61,21 +61,6 @@ async function fromMetadata(url) {
 async function spawnAt(chip, address, metadata, x, y) {
   const { bitmap, behavior } = metadata;
 
-  const tank = new Tank(bitmap.body, {
-    metadata,
-    health: metadata.health,
-    speed: metadata.speed,
-    rotateSpeed: metadata.rotateSpeed,
-  })
-    .addBehavior(tankBehavior)
-    .addBehavior(behavior.tank);
-  chip.spawn(tank, x, y);
-  tank.origin = {
-    x: tank.sprite.width / 2,
-    y: tank.sprite.height / 2,
-  };
-  tank.uuid = address;
-
   const cannon = new Cannon(bitmap.cannon, {
     bullet: bitmap.bullet,
     firerate: metadata.firerate,
@@ -86,6 +71,23 @@ async function spawnAt(chip, address, metadata, x, y) {
   })
     .addBehavior(cannonBehavior)
     .addBehavior(behavior.cannon);
+
+  const tank = new Tank(bitmap.body, {
+    metadata,
+    health: metadata.health,
+    speed: metadata.speed,
+    rotateSpeed: metadata.rotateSpeed,
+    cannon,
+  })
+    .addBehavior(tankBehavior)
+    .addBehavior(behavior.tank);
+  chip.spawn(tank, x, y);
+  tank.origin = {
+    x: tank.sprite.width / 2,
+    y: tank.sprite.height / 2,
+  };
+  tank.uuid = address;
+
   chip.spawn(cannon, tank.x, tank.y);
   cannon.origin = {
     x: metadata.cannonOrigin.x,
@@ -104,6 +106,7 @@ function wsHandler(chip, ws) {
         chip.cleanup();
         for (let i = 0; i < data.length; i++) {
           const { address, metadata, position } = data[i];
+          console.log("From %s %s", address, metadata);
           fromMetadata(metadata).then((m) => {
             spawnAt(chip, address, m, position.x, position.y);
             chip.shell.add(address);

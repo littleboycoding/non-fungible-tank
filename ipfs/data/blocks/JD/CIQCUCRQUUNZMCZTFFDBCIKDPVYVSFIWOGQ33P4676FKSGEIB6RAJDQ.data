@@ -1,0 +1,1717 @@
+
+����(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[13,6,7],{
+
+/***/ 344:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/SeoTags.vue?vue&type=template&id=3df054af&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (false)?undefined:_vm._e()}
+var staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./components/SeoTags.vue?vue&type=template&id=3df054af&
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.js
+var es_symbol = __webpack_require__(2);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.description.js
+var es_symbol_description = __webpack_require__(51);
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/SeoTags.vue?vue&type=script&lang=js&
+
+
+//
+//
+//
+//
+/* harmony default export */ var SeoTagsvue_type_script_lang_js_ = ({
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    description: {
+      type: String,
+      required: true
+    },
+    image: {
+      type: String,
+      default: 'https://ipfs.io/images/social-card.png'
+    }
+  },
+  head: function head() {
+    return {
+      meta: [{
+        hid: 'description',
+        name: 'description',
+        content: this.description
+      }, {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary'
+      }, {
+        hid: 'twitter:title',
+        name: 'twitter:title',
+        content: this.title
+      }, {
+        hid: 'twitter:description',
+        name: 'twitter:description',
+        content: this.description
+      }, {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content: this.image
+      }, {
+        hid: 'twitter:image:alt',
+        name: 'twitter:image:alt',
+        content: this.title
+      }, {
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: '@ipfs'
+      }, {
+        hid: 'og:title',
+        property: 'og:title',
+        content: this.title
+      }, {
+        hid: 'og:description',
+        property: 'og:description',
+        content: this.description
+      }, {
+        hid: 'og:image',
+        property: 'og:image',
+        content: this.image
+      }, {
+        hid: 'og:image:secure_url',
+        property: 'og:image:secure_url',
+        content: this.image
+      }, {
+        hid: 'og:image:alt',
+        property: 'og:image:alt',
+        content: this.title
+      }]
+    };
+  }
+});
+// CONCATENATED MODULE: ./components/SeoTags.vue?vue&type=script&lang=js&
+ /* harmony default export */ var components_SeoTagsvue_type_script_lang_js_ = (SeoTagsvue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__(11);
+
+// CONCATENATED MODULE: ./components/SeoTags.vue
+
+
+
+
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  components_SeoTagsvue_type_script_lang_js_,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var SeoTags = __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ 354:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(369);
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(32).default
+var update = add("839a15c8", content, true, {"sourceMap":false});
+
+/***/ }),
+
+/***/ 368:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VideoModal_vue_vue_type_style_index_0_id_636a68ba_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(354);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VideoModal_vue_vue_type_style_index_0_id_636a68ba_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VideoModal_vue_vue_type_style_index_0_id_636a68ba_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+
+
+/***/ }),
+
+/***/ 369:
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(31);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.i, ".modal-content[data-v-636a68ba]{\n  top:50%;\n  left:50%;\n  transform:translate(-50%,-50%)\n}", ""]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {};
+module.exports = ___CSS_LOADER_EXPORT___;
+
+
+/***/ }),
+
+/***/ 385:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/VideoModal.vue?vue&type=template&id=636a68ba&scoped=true&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('transition',{attrs:{"name":"fade"}},[(_vm.show)?_c('div',{staticClass:"fixed top-0 right-0 bottom-0 left-0 z-50"},[_c('div',{staticClass:"fixed top-0 right-0 bottom-0 left-0 bg-black bg-opacity-25",on:{"click":function($event){return _vm.closeModal()}}}),_vm._v(" "),_c('div',{staticClass:"\n        modal-content\n        absolute\n        bg-white\n        rounded\n        w-11/12\n        md:w-4/5\n        max-w-screen-lg max-h-screen\n        overflow-y-auto\n        p-4\n        lg:p-8\n      ",attrs:{"role":"dialog","aria-modal":"true"}},[_c('h1',{staticClass:"type-h5 font-semibold text-xl text-primary mr-4"},[_c('Link',{staticClass:"clamp-3 hover:underline",attrs:{"item":{ link: _vm.video.url, text: _vm.video.title }}})],1),_vm._v(" "),_c('div',{staticClass:"embed-responsive embed-responsive-16by9 my-4"},[_c('iframe',{attrs:{"type":"text/html","src":_vm.resolvedPath,"allow":"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture","allowfullscreen":"","frameborder":"0"}})]),_vm._v(" "),_c('button',{staticClass:"\n          absolute\n          top-0\n          right-0\n          mt-4\n          mr-4\n          text-blueGreen\n          hover:underline\n          font-bold\n          text-xl\n        ",attrs:{"type":"button"},on:{"click":function($event){return _vm.closeModal()}}},[_vm._v("\n        X\n      ")])])]):_vm._e()])}
+var staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./components/VideoModal.vue?vue&type=template&id=636a68ba&scoped=true&
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.includes.js
+var es_array_includes = __webpack_require__(46);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.includes.js
+var es_string_includes = __webpack_require__(67);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
+var es_object_to_string = __webpack_require__(18);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.iterator.js
+var es_string_iterator = __webpack_require__(26);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
+var web_dom_collections_iterator = __webpack_require__(36);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.url.js
+var web_url = __webpack_require__(223);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.slice.js
+var es_array_slice = __webpack_require__(53);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.concat.js
+var es_array_concat = __webpack_require__(8);
+
+// EXTERNAL MODULE: ./components/Link.vue + 5 modules
+var Link = __webpack_require__(24);
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/VideoModal.vue?vue&type=script&lang=js&
+
+
+
+
+
+
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ var VideoModalvue_type_script_lang_js_ = ({
+  name: 'VideoModal',
+  components: {
+    Link: Link["default"]
+  },
+  props: {},
+  data: function data() {
+    return {
+      show: false,
+      video: {}
+    };
+  },
+  computed: {
+    resolvedPath: function resolvedPath() {
+      if (!this.video.url.includes('youtube') || this.video.url.includes('embed')) {
+        return this.video.url;
+      }
+
+      var newPath = new URL(this.video.url);
+      var originalStartTime = newPath.searchParams.get('t');
+      var start = originalStartTime && newPath.searchParams.get('t').slice(0, newPath.searchParams.get('t').length - 1);
+      var id = newPath.searchParams.get('v') || newPath.searchParams.get('list');
+      var isAList = newPath.pathname.includes('list');
+      return isAList ? "https://www.youtube.com/embed/videoseries?list=".concat(id) : "https://www.youtube.com/embed/".concat(id, "?").concat(start ? "start=".concat(start) : '');
+    }
+  },
+  methods: {
+    closeModal: function closeModal() {
+      this.show = false;
+      this.video = {};
+    },
+    openModal: function openModal(video) {
+      this.video = video;
+      this.show = true;
+    }
+  }
+});
+// CONCATENATED MODULE: ./components/VideoModal.vue?vue&type=script&lang=js&
+ /* harmony default export */ var components_VideoModalvue_type_script_lang_js_ = (VideoModalvue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./components/VideoModal.vue?vue&type=style&index=0&id=636a68ba&scoped=true&lang=css&
+var VideoModalvue_type_style_index_0_id_636a68ba_scoped_true_lang_css_ = __webpack_require__(368);
+
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__(11);
+
+// CONCATENATED MODULE: ./components/VideoModal.vue
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  components_VideoModalvue_type_script_lang_js_,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  "636a68ba",
+  null
+  
+)
+
+/* harmony default export */ var VideoModal = __webpack_exports__["default"] = (component.exports);
+
+/* nuxt-component-imports */
+installComponents(component, {Link: __webpack_require__(24).default,Button: __webpack_require__(136).default})
+
+
+/***/ }),
+
+/***/ 389:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(456);
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(32).default
+var update = add("572486ee", content, true, {"sourceMap":false});
+
+/***/ }),
+
+/***/ 442:
+/***/ (function(module, exports, __webpack_require__) {
+
+// TODO: Remove from `core-js@4`
+__webpack_require__(443);
+
+
+/***/ }),
+
+/***/ 443:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $ = __webpack_require__(9);
+var aFunction = __webpack_require__(77);
+var newPromiseCapabilityModule = __webpack_require__(137);
+var perform = __webpack_require__(226);
+var iterate = __webpack_require__(225);
+
+// `Promise.allSettled` method
+// https://tc39.es/ecma262/#sec-promise.allsettled
+$({ target: 'Promise', stat: true }, {
+  allSettled: function allSettled(iterable) {
+    var C = this;
+    var capability = newPromiseCapabilityModule.f(C);
+    var resolve = capability.resolve;
+    var reject = capability.reject;
+    var result = perform(function () {
+      var promiseResolve = aFunction(C.resolve);
+      var values = [];
+      var counter = 0;
+      var remaining = 1;
+      iterate(iterable, function (promise) {
+        var index = counter++;
+        var alreadyCalled = false;
+        values.push(undefined);
+        remaining++;
+        promiseResolve.call(C, promise).then(function (value) {
+          if (alreadyCalled) return;
+          alreadyCalled = true;
+          values[index] = { status: 'fulfilled', value: value };
+          --remaining || resolve(values);
+        }, function (error) {
+          if (alreadyCalled) return;
+          alreadyCalled = true;
+          values[index] = { status: 'rejected', reason: error };
+          --remaining || resolve(values);
+        });
+      });
+      --remaining || resolve(values);
+    });
+    if (result.error) reject(result.value);
+    return capability.promise;
+  }
+});
+
+
+/***/ }),
+
+/***/ 455:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_01741338_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(389);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_01741338_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_01741338_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+
+
+/***/ }),
+
+/***/ 456:
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(31);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.i, ".video-preview:hover .video-preview-thumbnail[data-v-01741338]{\n  --tw-scale-x:1.05;\n  --tw-scale-y:1.05\n}\nh2[data-v-01741338]{\n  font-size:1.875rem;\n  line-height:2.25rem\n}\n@media (min-width: 640px){\nh2[data-v-01741338]{\n    font-size:2.25rem;\n    line-height:2.5rem\n}\n}", ""]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {};
+module.exports = ___CSS_LOADER_EXPORT___;
+
+
+/***/ }),
+
+/***/ 574:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/index.vue?vue&type=template&id=01741338&scoped=true&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('seo-tags',{attrs:{"title":"IPFS Powers the Distributed Web","description":"The InterPlanetary File System is a peer-to-peer hypermedia protocol designed to preserve and grow humanity's knowledge by making the web upgradeable, resilient, and more open."}}),_vm._v(" "),_c('StarfieldHero',{attrs:{"title":"IPFS powers the Distributed Web"}},[_c('h2',{staticClass:"text-center"},[_vm._v("\n      A peer-to-peer hypermedia protocol\n      "),_c('br'),_vm._v("\n      designed to preserve and grow humanity's knowledge\n      "),_c('br'),_vm._v("\n      by making the web upgradeable, resilient, and more open.\n    ")]),_vm._v(" "),_c('div',{staticClass:"flex flex-col sm:flex-row mt-6"},[_c('Button',{staticClass:"mr-0 sm:mr-2.5 mb-2.5 sm:mb-0 px-8 py-3",attrs:{"type":"primary","href":"#install","text":"Get started","on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'hero/install'}, item)); }}}),_vm._v(" "),_c('Button',{staticClass:"px-8 py-3",attrs:{"href":"#how","text":"How it works","on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'hero/how'}, item)); }}})],1)]),_vm._v(" "),_c('section',{staticClass:"grid-margins py-20 sm:py-36",attrs:{"id":"why"}},[_vm._m(0),_vm._v(" "),_c('div',{staticClass:"grid grid-cols-1 sm:grid-cols-2 gap-x-16 gap-y-20"},[_c('div',[_c('div',{staticClass:"flex justify-center items-center h-52 px-3"},[_c('Icon',{staticClass:"max-w-xs h-52",attrs:{"name":"ipfs-illustration-http"}})],1),_vm._v(" "),_c('h3',{staticClass:"text-center text-navy text-base sm:text-lg mb-4 font-bold"},[_vm._v("\n          Today's web is inefficient and expensive\n        ")]),_vm._v(" "),_c('p',[_vm._v("\n          HTTP downloads files from one server at a time — but peer-to-peer\n          IPFS retrieves pieces from multiple nodes at once, enabling\n          substantial bandwidth savings. With\n          "),_c('Link',{staticClass:"text-blueGreen font-bold hover:underline",attrs:{"item":{
+              link: 'https://math.oregonstate.edu/~kovchegy/web/papers/p2p-vdn.pdf',
+              text: 'up to 60% savings for video,',
+            },"on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'why/1-performance'}, item)); }}}),_vm._v("\n          IPFS makes it possible to efficiently distribute high volumes of\n          data without duplication.\n        ")],1)]),_vm._v(" "),_c('div',[_c('div',{staticClass:"flex justify-center items-center h-52 px-3"},[_c('Icon',{staticClass:"max-w-xs h-52",attrs:{"name":"ipfs-illustration-history"}})],1),_vm._v(" "),_c('h3',{staticClass:"text-center text-navy text-base sm:text-lg mb-4 font-bold"},[_vm._v("\n          Today's web can't preserve humanity's history\n        ")]),_vm._v(" "),_c('p',[_c('Link',{staticClass:"text-blueGreen font-bold hover:underline",attrs:{"item":{
+              link: 'https://blogs.loc.gov/thesignal/2011/11/the-average-lifespan-of-a-webpage/',
+              text: 'The average lifespan of a web page is 100 days',
+            },"on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'why/2-preservation'}, item)); }}}),_vm._v("\n          before it's gone forever. The medium of our era shouldn't be this\n          fragile. IPFS makes it simple to set up resilient networks for\n          mirroring data, and thanks to content addressing, files stored using\n          IPFS are automatically versioned.\n        ")],1)]),_vm._v(" "),_c('div',[_c('div',{staticClass:"flex justify-center items-center h-52 px-3"},[_c('Icon',{staticClass:"max-w-xs h-52",attrs:{"name":"ipfs-illustration-centralized"}})],1),_vm._v(" "),_c('h3',{staticClass:"text-center text-navy text-base sm:text-lg mb-4 font-bold"},[_vm._v("\n          Today's web is centralized, limiting opportunity\n        ")]),_vm._v(" "),_c('p',[_vm._v("\n          The Internet has turbocharged innovation by being one of the great\n          equalizers in human history — but increasing consolidation of\n          control threatens that progress. IPFS stays true to the original\n          vision of an open, flat web by delivering technology to make that\n          vision a reality.\n        ")])]),_vm._v(" "),_c('div',[_c('div',{staticClass:"flex justify-center items-center h-52 px-3"},[_c('Icon',{staticClass:"max-w-xs h-52",attrs:{"name":"ipfs-illustration-network"}})],1),_vm._v(" "),_c('h3',{staticClass:"text-center text-navy text-base sm:text-lg mb-4 font-bold"},[_vm._v("\n          Today's web is addicted to the backbone\n        ")]),_vm._v(" "),_c('p',[_vm._v("\n          IPFS powers the creation of diversely resilient networks that enable\n          persistent availability — with or without internet backbone\n          connectivity. This means better connectivity for the developing\n          world, during natural disasters, or just when you're on flaky coffee\n          shop wi-fi.\n        ")])])])]),_vm._v(" "),_c('section',{staticClass:"pt-20 pb-10 sm:py-20 bg-gradient-6 text-white",attrs:{"id":"install"}},[_c('div',{staticClass:"grid-margins 2xl:px-32"},[_vm._m(1),_vm._v(" "),_c('h3',{staticClass:"text-2xl sm:text-3xl font-display text-center"},[_vm._v("\n        Store and provide files\n      ")]),_vm._v(" "),_c('div',{staticClass:"grid grid-cols-12 p-4 mt-4 gap-y-0 sm:gap-y-24"},[_c('div',{staticClass:"col-span-12 sm:col-span-2 mb-2 sm:mb-0"},[_c('img',{staticClass:"max-h-24 sm:max-h-36 mx-auto",attrs:{"src":_vm.$relativity('/images/ipfs-desktop-hex.png'),"alt":"IPFS Desktop icon"}})]),_vm._v(" "),_c('div',{staticClass:"\n            col-span-12\n            mb-16\n            text-center\n            sm:mb-0 sm:col-span-10 sm:text-left sm:ml-3\n          "},[_c('h4',{staticClass:"text-xl md:text-2xl mb-1.5"},[_c('Link',{staticClass:"text-blueGreenLight font-display hover:underline",attrs:{"item":{
+                link: 'https://github.com/ipfs-shipyard/ipfs-desktop',
+                text: 'IPFS Desktop',
+              },"on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'install/ipfs-desktop'}, item)); }}})],1),_vm._v(" "),_c('h5',{staticClass:"mb-4 text-base md:text-lg font-bold"},[_vm._v("\n            IPFS for everyone\n          ")]),_vm._v(" "),_c('p',{staticClass:"mb-4"},[_vm._v("\n            The IPFS Desktop app offers menubar/tray shortcuts and an easy\n            interface for adding, pinning, and sharing files — plus a\n            full IPFS node ready for heavy-duty hosting and development. Great\n            for developers and less experienced users alike.\n          ")]),_vm._v(" "),_c('div',{staticClass:"flex justify-center sm:justify-start"},[_c('Button',{attrs:{"href":"https://docs.ipfs.io/install/ipfs-desktop/","target":"_blank","rel":"noopener","text":"Install IPFS Desktop","on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'install/ipfs-desktop'}, item)); }}})],1)]),_vm._v(" "),_c('div',{staticClass:"col-span-12 sm:col-span-2 mb-2 sm:mb-0"},[_c('img',{staticClass:"max-h-24 sm:max-h-36 mx-auto",attrs:{"src":_vm.$relativity('/images/command-line-hex.png'),"alt":"Screenshot of IPFS command-line interface"}})]),_vm._v(" "),_c('div',{staticClass:"\n            col-span-12\n            mb-16\n            text-center\n            sm:mb-0 sm:col-span-10 sm:text-left sm:ml-3\n          "},[_c('h4',{staticClass:"text-xl md:text-2xl mb-1.5"},[_c('Link',{staticClass:"text-blueGreenLight font-display hover:underline",attrs:{"item":{
+                link: 'https://docs.ipfs.io/how-to/command-line-quick-start',
+                text: 'Command-line install',
+              },"on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'install/ipfs-cli'}, item)); }}})],1),_vm._v(" "),_c('h5',{staticClass:"mb-4 text-base md:text-lg font-bold"},[_vm._v("\n            All IPFS, no frills\n          ")]),_vm._v(" "),_c('p',{staticClass:"mb-4"},[_vm._v("\n            Just want to use IPFS from your terminal? Follow these\n            step-by-step instructions for getting up and running on the\n            command line using the Go implementation of IPFS. Includes\n            directions for Windows, macOS, and Linux.\n          ")]),_vm._v(" "),_c('div',{staticClass:"flex justify-center sm:justify-start"},[_c('Button',{attrs:{"href":"https://docs.ipfs.io/how-to/command-line-quick-start","target":"_blank","rel":"noopener","text":"Install the IPFS CLI","on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'install/ipfs-cli'}, item)); }}})],1)]),_vm._v(" "),_c('div',{staticClass:"col-span-12 sm:col-span-6 grid grid-cols-12 sm:grid-cols-6"},[_c('div',{staticClass:"col-span-12 sm:col-span-2 mb-2 sm:mb-0"},[_c('img',{staticClass:"max-h-24 sm:max-h-36 mx-auto",attrs:{"src":_vm.$relativity('/images/ipfs-companion-hex.png'),"alt":"IPFS Companion icon"}})]),_vm._v(" "),_c('div',{staticClass:"\n              col-span-12\n              mb-16\n              text-center\n              sm:mb-0 sm:col-span-4 sm:text-left sm:ml-3 sm:mr-10\n            "},[_c('h4',{staticClass:"text-xl md:text-2xl mb-1.5"},[_c('Link',{staticClass:"text-blueGreenLight font-display hover:underline",attrs:{"item":{
+                  link: 'https://github.com/ipfs-shipyard/ipfs-companion',
+                  text: 'IPFS Companion',
+                },"on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'install/ipfs-companion'}, item)); }}})],1),_vm._v(" "),_c('h5',{staticClass:"mb-4 text-base md:text-lg font-bold"},[_vm._v("\n              Add IPFS to your browser\n            ")]),_vm._v(" "),_vm._m(2),_vm._v(" "),_c('div',{staticClass:"flex justify-center sm:justify-start"},[_c('Button',{attrs:{"href":"https://docs.ipfs.io/install/ipfs-companion/","target":"_blank","rel":"noopener","text":"Get IPFS Companion","on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'install/ipfs-companion'}, item)); }}})],1)])]),_vm._v(" "),_c('div',{staticClass:"col-span-12 sm:col-span-6 grid grid-cols-12 sm:grid-cols-6"},[_c('div',{staticClass:"col-span-12 sm:col-span-2 mb-2 sm:mb-0"},[_c('img',{staticClass:"max-h-24 sm:max-h-36 mx-auto",attrs:{"src":_vm.$relativity('/images/ipfs-cluster.png'),"alt":"IPFS Cluster logo"}})]),_vm._v(" "),_c('div',{staticClass:"col-span-12 text-center sm:col-span-4 sm:text-left sm:ml-3"},[_c('h4',{staticClass:"text-xl md:text-2xl mb-1.5"},[_c('Link',{staticClass:"text-blueGreenLight font-display hover:underline",attrs:{"item":{
+                  link: 'https://cluster.ipfs.io/',
+                  text: 'IPFS Cluster',
+                },"on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'install/ipfs-cluster'}, item)); }}})],1),_vm._v(" "),_c('h5',{staticClass:"mb-4 text-base md:text-lg font-bold"},[_vm._v("\n              Orchestrate multiple IPFS nodes\n            ")]),_vm._v(" "),_c('p',{staticClass:"mb-4"},[_vm._v("\n              Automatically allocate, replicate, and track your data as a\n              global pinset distributed among a swarm of peers.\n            ")]),_vm._v(" "),_c('div',{staticClass:"flex justify-center sm:justify-start"},[_c('Button',{attrs:{"href":"https://cluster.ipfs.io/","target":"_blank","rel":"noopener","text":"Get IPFS Cluster","on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'install/ipfs-cluster'}, item)); }}})],1)])])]),_vm._v(" "),_c('h3',{staticClass:"text-2xl sm:text-3xl font-display text-center mt-24 mb-8"},[_vm._v("\n        For developers\n      ")]),_vm._v(" "),_c('div',{staticClass:"grid grid-cols-12 p-4 mt-4 gap-y-0 sm:gap-y-24"},[_c('div',{staticClass:"col-span-12 sm:col-span-6 grid grid-cols-12 sm:grid-cols-6"},[_c('div',{staticClass:"col-span-12 sm:col-span-2 mb-2 sm:mb-0"},[_c('img',{staticClass:"max-h-24 sm:max-h-36 mx-auto",attrs:{"src":_vm.$relativity('/images/go-ipfs-hex-logo.png'),"alt":"IPFS icon with a superimposed Go logo"}})]),_vm._v(" "),_c('div',{staticClass:"\n              col-span-12\n              mb-16\n              sm:mb-0\n              text-center\n              sm:col-span-4 sm:text-left sm:ml-3 sm:mr-10\n            "},[_c('h4',{staticClass:"text-xl md:text-2xl mb-1.5"},[_c('Link',{staticClass:"text-blueGreenLight font-display hover:underline",attrs:{"item":{
+                  link: 'https://github.com/ipfs/go-ipfs',
+                  text: 'Go implementation',
+                },"on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'install/go-ipfs'}, item)); }}})],1),_vm._v(" "),_c('p',{staticClass:"mb-4"},[_vm._v("\n              The original IPFS implementation: IPFS core, daemon server, CLI\n              tooling, and more.\n            ")]),_vm._v(" "),_c('div',{staticClass:"flex justify-center sm:justify-start"},[_c('Button',{attrs:{"href":"https://github.com/ipfs/go-ipfs","target":"_blank","rel":"noopener","text":"Get go-ipfs","on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'install/go-ipfs'}, item)); }}})],1)])]),_vm._v(" "),_c('div',{staticClass:"col-span-12 sm:col-span-6 grid grid-cols-12 sm:grid-cols-6"},[_c('div',{staticClass:"col-span-12 sm:col-span-2 mb-2 sm:mb-0"},[_c('img',{staticClass:"max-h-24 sm:max-h-36 mx-auto",attrs:{"src":_vm.$relativity('/images/js-ipfs-logo.png'),"alt":"js-ipfs logo"}})]),_vm._v(" "),_c('div',{staticClass:"\n              col-span-12\n              mb-16\n              sm:mb-0\n              text-center\n              sm:col-span-4 sm:text-left sm:ml-3\n            "},[_c('h4',{staticClass:"text-xl md:text-2xl mb-1.5"},[_c('Link',{staticClass:"text-blueGreenLight font-display hover:underline",attrs:{"item":{
+                  link: 'https://js.ipfs.io',
+                  text: 'JS implementation',
+                },"on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'install/js-ipfs'}, item)); }}})],1),_vm._v(" "),_c('p',{staticClass:"mb-4"},[_vm._v("\n              IPFS implemented entirely in JavaScript for a world of\n              possibilities in the browser and Node.js.\n            ")]),_vm._v(" "),_c('div',{staticClass:"flex justify-center sm:justify-start"},[_c('Button',{attrs:{"href":"https://js.ipfs.io","target":"_blank","rel":"noopener","text":"Get js-ipfs","on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'install/js-ipfs'}, item)); }}})],1)])])])])]),_vm._v(" "),_c('section',{staticClass:"grid-margins py-20",attrs:{"id":"how"}},[_vm._m(3),_vm._v(" "),_c('div',{staticClass:"max-w-3xl mx-auto"},[_c('div',{staticClass:"\n          flex flex-col\n          sm:flex-row\n          text-center\n          sm:text-left\n          items-center\n          mb-12\n        "},[_c('div',{staticClass:"flex items-center justify-center max-h-36 mb-5 sm:mb-0"},[_c('Icon',{staticClass:"w-40 max-h-32",attrs:{"name":"ipfs-illustrations-how-1"}})],1),_vm._v(" "),_c('div',{staticClass:"pl-0 sm:pl-10"},[_c('p',{staticClass:"leading-normal"},[_vm._v("\n            When you add a file to IPFS, your file is split into smaller\n            chunks, cryptographically hashed, and given a\n            "),_c('strong',[_vm._v("unique fingerprint")]),_vm._v(" called a\n            "),_c('Link',{staticClass:"text-blueGreen font-bold hover:underline",attrs:{"item":{
+                link: 'https://proto.school/anatomy-of-a-cid',
+                text: 'content identifier',
+              },"on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'how/1-cid'}, item)); }}}),_vm._v("\n            (CID). This CID acts as an permanent record of your file as it\n            exists at that point in time.\n          ")],1)])]),_vm._v(" "),_c('div',{staticClass:"\n          flex flex-col\n          sm:flex-row\n          text-center\n          sm:text-left\n          items-center\n          mb-12\n        "},[_c('div',{staticClass:"flex items-center justify-center max-h-36 mb-5 sm:mb-0"},[_c('Icon',{staticClass:"w-40 max-h-32",attrs:{"name":"ipfs-illustrations-how-4"}})],1),_vm._v(" "),_vm._m(4)]),_vm._v(" "),_c('div',{staticClass:"\n          flex flex-col\n          sm:flex-row\n          text-center\n          sm:text-left\n          items-center\n          mb-12\n        "},[_c('div',{staticClass:"flex items-center justify-center max-h-36 mb-5 sm:mb-0"},[_c('Icon',{staticClass:"w-40 max-h-32",attrs:{"name":"ipfs-illustrations-how-3"}})],1),_vm._v(" "),_c('div',{staticClass:"pl-0 sm:pl-10"},[_c('p',{staticClass:"leading-normal"},[_vm._v("\n            A node can\n            "),_c('Link',{staticClass:"text-blueGreen font-bold hover:underline",attrs:{"item":{
+                link: 'https://docs.ipfs.io/concepts/persistence/',
+                text: 'pin content',
+              },"on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'how/1-pinning'}, item)); }}}),_vm._v("\n            in order to keep (and provide) it forever, or discard content it\n            hasn't used in a while to save space. This means each node in the\n            network\n            "),_c('strong',[_vm._v("stores only content it is interested in")]),_vm._v(", plus\n            some indexing information that helps figure out which node is\n            storing what.\n          ")],1)])]),_vm._v(" "),_c('div',{staticClass:"\n          flex flex-col\n          sm:flex-row\n          text-center\n          sm:text-left\n          items-center\n          mb-12\n        "},[_c('div',{staticClass:"flex items-center justify-center max-h-36 mb-5 sm:mb-0"},[_c('Icon',{staticClass:"w-40 max-h-32",attrs:{"name":"ipfs-illustrations-how-2"}})],1),_vm._v(" "),_vm._m(5)]),_vm._v(" "),_c('div',{staticClass:"\n          flex flex-col\n          sm:flex-row\n          text-center\n          sm:text-left\n          items-center\n        "},[_c('div',{staticClass:"flex items-center justify-center max-h-36 mb-5 sm:mb-0"},[_c('Icon',{staticClass:"w-40 max-h-32",attrs:{"name":"ipfs-illustrations-how-5"}})],1),_vm._v(" "),_c('div',{staticClass:"pl-0 sm:pl-10"},[_c('p',{staticClass:"leading-normal"},[_vm._v("\n            However, this doesn't mean you need to remember a long string of\n            CIDs — IPFS can find the latest version of your file using\n            the\n            "),_c('Link',{staticClass:"text-blueGreen font-bold hover:underline",attrs:{"item":{
+                link: 'https://docs.ipfs.io/concepts/ipns/',
+                text: 'IPNS',
+              },"on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'how/1-performance'}, item)); }}}),_vm._v("\n            decentralized naming system, and\n            "),_c('Link',{staticClass:"text-blueGreen font-bold hover:underline",attrs:{"item":{
+                link: 'https://docs.ipfs.io/concepts/dnslink/',
+                text: 'DNSLink',
+              },"on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'how/1-performance'}, item)); }}}),_vm._v("\n            can be used to map CIDs to\n            "),_c('strong',[_vm._v("human-readable DNS names")]),_vm._v(".\n          ")],1)])])]),_vm._v(" "),_c('h3',{staticClass:"text-2xl sm:text-3xl font-display text-center mt-16 mb-8"},[_vm._v("\n      Take a closer look\n    ")]),_vm._v(" "),_c('div',{staticClass:"flex flex-col sm:flex-row justify-around"},[_c('div',{staticClass:"flex flex-col items-center mb-8 sm:mb-0"},[_c('h4',{staticClass:"text-navy text-base sm:text-lg font-semibold mb-4"},[_vm._v("\n          Want to dig in?\n        ")]),_vm._v(" "),_c('Button',{attrs:{"type":"primary","href":"https://docs.ipfs.io/","target":"_blank","text":"Check out the docs","on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'how/docs'}, item)); }}})],1),_vm._v(" "),_c('div',{staticClass:"flex flex-col items-center mb-8 sm:mb-0"},[_c('h4',{staticClass:"text-navy text-base sm:text-lg font-semibold mb-4"},[_vm._v("\n          Hands-on learner?\n        ")]),_vm._v(" "),_c('Button',{attrs:{"type":"primary","href":"https://proto.school/course/ipfs","target":"_blank","text":"Explore ProtoSchool","on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'how/protoschool'}, item)); }}})],1),_vm._v(" "),_c('div',{staticClass:"flex flex-col items-center"},[_c('h4',{staticClass:"text-navy text-base sm:text-lg font-semibold mb-4"},[_vm._v("\n          Curious where it all began?\n        ")]),_vm._v(" "),_c('Button',{attrs:{"type":"primary","href":"https://github.com/ipfs/papers/raw/master/ipfs-cap2pfs/ipfs-p2p-file-system.pdf","target":"_blank","text":"Read the whitepaper","on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'how/whitepaper'}, item)); }}})],1)])]),_vm._v(" "),_c('Divider'),_vm._v(" "),_c('section',{staticClass:"grid-margins text-center py-20"},[_c('h2',{staticClass:"font-display mb-4"},[_vm._v("IPFS can help here and now")]),_vm._v(" "),_c('p',{staticClass:"text-base sm:text-lg"},[_vm._v("\n      No matter what you do with the web, IPFS helps make it better today.\n    ")]),_vm._v(" "),_c('div',{staticClass:"\n        grid grid-cols-1\n        sm:grid-cols-3\n        gap-y-12\n        sm:gap-y-0\n        gap-x-8\n        mt-12\n        sm:mt-24\n      "},[_c('div',{staticClass:"flex flex-col"},[_c('div',{staticClass:"max-h-24 mb-12"},[_c('Icon',{staticClass:"h-36 w-36 mx-auto",attrs:{"name":"ipfs-illustration-archivists"}})],1),_vm._v(" "),_c('h3',{staticClass:"text-navy text-base sm:text-lg font-semibold mb-2"},[_vm._v("\n          Archivists\n        ")]),_vm._v(" "),_c('p',[_vm._v("\n          Storing archival data using IPFS enables deduplication, clustered\n          persistence, and high performance — empowering you to store\n          the world's information for future generations.\n        ")])]),_vm._v(" "),_c('div',{staticClass:"flex flex-col"},[_c('div',{staticClass:"max-h-24 mb-12"},[_c('Icon',{staticClass:"h-36 w-36 mx-auto",attrs:{"name":"ipfs-illustration-service"}})],1),_vm._v(" "),_c('h3',{staticClass:"text-navy text-base sm:text-lg font-semibold mb-2"},[_vm._v("\n          Service providers\n        ")]),_vm._v(" "),_c('p',[_vm._v("\n          Providing large amounts of data to users? Storing on IPFS could help\n          you slash bandwidth costs thanks to its use of secure, peer-to-peer\n          content delivery.\n        ")])]),_vm._v(" "),_c('div',{staticClass:"flex flex-col"},[_c('div',{staticClass:"max-h-24 mb-12"},[_c('Icon',{staticClass:"h-36 w-36 mx-auto",attrs:{"name":"ipfs-illustration-data"}})],1),_vm._v(" "),_c('h3',{staticClass:"text-navy text-base sm:text-lg font-semibold mb-2"},[_vm._v("\n          Researchers\n        ")]),_vm._v(" "),_c('p',[_vm._v("\n          If you're working with or distributing large datasets, storing that\n          data using IPFS can help speed up performance and unlock\n          decentralized archiving.\n        ")])])]),_vm._v(" "),_c('div',{staticClass:"\n        grid grid-cols-1\n        sm:grid-cols-3\n        gap-y-12\n        sm:gap-y-0\n        gap-x-8\n        mt-12\n      "},[_c('div',{staticClass:"flex flex-col"},[_c('div',{staticClass:"max-h-24 mb-12"},[_c('Icon',{staticClass:"h-36 w-36 mx-auto",attrs:{"name":"ipfs-illustration-blockchains"}})],1),_vm._v(" "),_c('h3',{staticClass:"text-navy text-base sm:text-lg font-semibold mb-2"},[_vm._v("\n          Blockchain developers\n        ")]),_vm._v(" "),_c('p',[_vm._v("\n          IPFS content addressing enables you to store large files off-chain\n          and put immutable, permanent links in transactions —\n          timestamping and securing content without having to put the data\n          itself on-chain.\n        ")])]),_vm._v(" "),_c('div',{staticClass:"flex flex-col"},[_c('div',{staticClass:"max-h-24 mb-12"},[_c('Icon',{staticClass:"h-36 w-36 mx-auto",attrs:{"name":"ipfs-illustration-creators"}})],1),_vm._v(" "),_c('h3',{staticClass:"text-navy text-base sm:text-lg font-semibold mb-2"},[_vm._v("\n          Content creators\n        ")]),_vm._v(" "),_c('p',[_vm._v("\n          IPFS empowers creators to build and share on the decentralized web\n          — whether that's delivering content free from intermediary\n          control or minting NFTs that stand the test of time.\n        ")])]),_vm._v(" "),_c('div',{staticClass:"flex flex-col"},[_c('div',{staticClass:"max-h-24 mb-12"},[_c('Icon',{staticClass:"h-36 w-36 mx-auto",attrs:{"name":"ipfs-illustration-developing"}})],1),_vm._v(" "),_c('h3',{staticClass:"text-navy text-base sm:text-lg font-semibold mb-2"},[_vm._v("\n          Offline users\n        ")]),_vm._v(" "),_c('p',[_vm._v("\n          High-latency networks cause major obstacles for those with poor\n          internet infrastructure. Peer-to-peer IPFS offers resilient access\n          to data independent of latency or backbone connectivity.\n        ")])])])]),_vm._v(" "),_c('Divider'),_vm._v(" "),_c('section',{staticClass:"grid-margins py-20"},[_c('h2',{staticClass:"font-display text-center mb-12"},[_vm._v("Who's already using IPFS?")]),_vm._v(" "),_c('div',{staticClass:"grid grid-cols-2"},[_c('div',{staticClass:"col-span-2 md:col-span-1 mb-8 md:mb-0 md:mr-12"},[_c('div',{staticClass:"\n            video-preview\n            max-w-sm\n            md:max-w-xl\n            mx-auto\n            md:mx-0 md:float-right\n            cursor-pointer\n          "},[_c('div',{staticClass:"relative overflow-hidden rounded border-2 border-gray-300",on:{"click":function () {
+                _vm.openVideoModal({
+                  title: 'Building Web3: Pinata',
+                  url: 'https://www.youtube.com/watch?v=29k2C1JXyg4&list=PL_0VrY55uV1-THfh1GVoE6v0SxKO9M0gs',
+                });
+
+                _vm.onCTAClick({
+                  ui: 'who/meet-builders',
+                  type: 'video',
+                  url: 'https://www.youtube.com/watch?v=29k2C1JXyg4&list=PL_0VrY55uV1-THfh1GVoE6v0SxKO9M0gs',
+                });
+              }}},[_c('img',{staticClass:"\n                video-preview-thumbnail\n                filter\n                brightness-75\n                transform\n                transition-transform\n                duration-300\n              ",attrs:{"src":_vm.$relativity('/images/meet-builders-thumbnail-pinata.png'),"alt":"Meet the Builders: Pinata"}}),_vm._v(" "),_c('Icon',{staticClass:"\n                absolute\n                top-0\n                bottom-0\n                left-0\n                right-0\n                mx-auto\n                my-auto\n                w-1/6\n              ",attrs:{"name":"video-play"}})],1)])]),_vm._v(" "),_c('div',{staticClass:"col-span-2 md:col-span-1 md:max-w-xl text-center md:text-left"},[_c('h3',{staticClass:"text-navy text-base sm:text-lg font-semibold mb-4"},[_vm._v("\n          Explore the ecosystem\n        ")]),_vm._v(" "),_c('p',{staticClass:"text-base sm:text-lg mb-6"},[_vm._v("\n          Companies and organizations worldwide are building amazing apps,\n          services, and developer tools on IPFS. Check out the video to hear\n          straight from IPFS builders, and explore the interactive IPFS\n          ecosystem directory to learn more.\n        ")]),_vm._v(" "),_c('Button',{attrs:{"type":"primary","href":"https://ecosystem.ipfs.io","text":"View the ecosystem directory","on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'who/ecosystem'}, item)); }}})],1)])]),_vm._v(" "),_c('Divider'),_vm._v(" "),_c('section',{staticClass:"grid-margins py-20"},[_c('h2',{staticClass:"font-display text-center mb-12"},[_vm._v("News and more")]),_vm._v(" "),_c('div',{staticClass:"grid grid-cols-4"},[_c('div',{staticClass:"col-span-4 sm:col-span-1 pr-16 mb-8 sm:mb-0"},[_c('h3',{staticClass:"text-navy text-base sm:text-lg font-semibold mb-4"},[_vm._v("\n          Latest blog posts\n        ")]),_vm._v(" "),_c('ol',_vm._l((_vm.latestPosts),function(post){return _c('li',{key:post.title,staticClass:"flex flex-col mb-2.5"},[_c('span',{staticClass:"text-sm text-gray-500"},[_vm._v(_vm._s(post.date))]),_vm._v(" "),_c('Link',{staticClass:"text-blueGreen font-bold hover:underline",attrs:{"item":{
+                link: post.url,
+                text: post.title,
+              },"on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'latest/link', type: 'blog'}, item)); }}})],1)}),0)]),_vm._v(" "),_c('div',{staticClass:"col-span-4 sm:col-span-1 pr-16 mb-8 sm:mb-0"},[_c('h3',{staticClass:"text-navy text-base sm:text-lg font-semibold mb-4"},[_vm._v("\n          In the media\n        ")]),_vm._v(" "),_c('ol',_vm._l((_vm.latestNews),function(news){return _c('li',{key:news.title,staticClass:"flex flex-col mb-2.5"},[_c('span',{staticClass:"text-sm text-gray-500"},[_vm._v(_vm._s(news.date))]),_vm._v(" "),_c('Link',{staticClass:"text-blueGreen font-bold hover:underline",attrs:{"item":{
+                link: news.url,
+                text: news.title,
+              },"on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'latest/link', type: 'media'}, item)); }}})],1)}),0)]),_vm._v(" "),_c('div',{staticClass:"col-span-4 sm:col-span-2"},[_c('h3',{staticClass:"text-navy text-base sm:text-lg font-semibold mb-4"},[_vm._v("\n          Latest videos\n        ")]),_vm._v(" "),_c('div',{staticClass:"flex mb-4"},_vm._l((_vm.latestVideos),function(video){return _c('div',{key:video.title,staticClass:"video-preview flex flex-col mr-8 w-6/12"},[_c('a',{staticClass:"\n                relative\n                overflow-hidden\n                rounded\n                border-2 border-gray-300\n                mb-2\n              ",attrs:{"href":video.url},on:{"click":function () { return _vm.onCTAClick({
+                    ui: 'latest/link',
+                    type: 'video',
+                    url: video.url,
+                  }); }}},[_c('img',{staticClass:"\n                  video-preview-thumbnail\n                  max-h-48\n                  filter\n                  brightness-75\n                  transform\n                  transition-transform\n                  duration-300\n                ",attrs:{"src":video.thumbnail,"alt":video.title}}),_vm._v(" "),_c('Icon',{staticClass:"\n                  absolute\n                  top-0\n                  bottom-0\n                  left-0\n                  right-0\n                  mx-auto\n                  my-auto\n                  w-1/5\n                ",attrs:{"name":"video-play"}})],1),_vm._v(" "),_c('Link',{staticClass:"text-blueGreen font-bold hover:underline",attrs:{"item":{
+                link: video.url,
+                text: video.title,
+              },"on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'latest/link', type: 'video'}, item)); }}})],1)}),0),_vm._v(" "),_c('Button',{attrs:{"type":"primary","href":"https://blog.ipfs.io/?category=Video","text":"More videos","target":"_blank","on-click":function (item) { return _vm.onCTAClick(Object.assign({}, {ui: 'latest/more-videos'}, item)); }}})],1)])]),_vm._v(" "),_c('VideoModal',{ref:"videoModal"})],1)}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"text-center mb-8 sm:mb-20"},[_c('h2',{staticClass:"font-display mb-3"},[_vm._v("The web of tomorrow needs IPFS today")]),_vm._v(" "),_c('p',{staticClass:"text-base sm:text-lg"},[_vm._v("\n        IPFS aims to surpass HTTP in order to build a better web for all of\n        us.\n      ")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"text-center mb-16"},[_c('h2',{staticClass:"font-display mb-3"},[_vm._v("Install IPFS")]),_vm._v(" "),_c('p',{staticClass:"text-base sm:text-lg"},[_vm._v("\n          Join the future of the web right now — just choose the option\n          that's right for you.\n        ")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('p',{staticClass:"mb-4"},[_vm._v("\n              Get "),_c('code',[_vm._v("ipfs://")]),_vm._v(" address support and more in your\n              browser with this extension for Chromium and Firefox.\n            ")])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"text-center mb-16"},[_c('h2',{staticClass:"font-display mb-4"},[_vm._v("How IPFS works")]),_vm._v(" "),_c('p',{staticClass:"text-base sm:text-lg"},[_vm._v("\n        Here's what happens when you add a file to IPFS — whether you're\n        storing that file on your own local node or one operated by a pinning\n        service or IPFS-enabled app.\n      ")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pl-0 sm:pl-10"},[_c('p',{staticClass:"leading-normal"},[_vm._v("\n            When other nodes "),_c('strong',[_vm._v("look up your file")]),_vm._v(", they ask\n            their peer nodes who's storing the content referenced by the\n            file's CID. When they view or download your file, they cache a\n            copy — and become another provider of your content until their\n            cache is cleared.\n          ")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pl-0 sm:pl-10"},[_c('p',{staticClass:"leading-normal"},[_vm._v("\n            If you add a new version of your file to IPFS, its cryptographic\n            hash is different, and so it gets a new CID. This means\n            "),_c('strong',[_vm._v("files stored on IPFS are resistant to tampering and\n              censorship")]),_vm._v("\n            — any changes to a file don't overwrite the original, and common\n            chunks across files can be reused in order to minimize storage\n            costs.\n          ")])])}]
+
+
+// CONCATENATED MODULE: ./pages/index.vue?vue&type=template&id=01741338&scoped=true&
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/defineProperty.js
+var defineProperty = __webpack_require__(19);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 3 modules
+var slicedToArray = __webpack_require__(30);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js
+var asyncToGenerator = __webpack_require__(13);
+
+// EXTERNAL MODULE: ./node_modules/regenerator-runtime/runtime.js
+var runtime = __webpack_require__(52);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
+var es_object_to_string = __webpack_require__(18);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.regexp.to-string.js
+var es_regexp_to_string = __webpack_require__(78);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/esnext.promise.all-settled.js
+var esnext_promise_all_settled = __webpack_require__(442);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.iterator.js
+var es_string_iterator = __webpack_require__(26);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
+var web_dom_collections_iterator = __webpack_require__(36);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.keys.js
+var es_object_keys = __webpack_require__(4);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.js
+var es_symbol = __webpack_require__(2);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.filter.js
+var es_array_filter = __webpack_require__(5);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.get-own-property-descriptor.js
+var es_object_get_own_property_descriptor = __webpack_require__(6);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.for-each.js
+var web_dom_collections_for_each = __webpack_require__(3);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.get-own-property-descriptors.js
+var es_object_get_own_property_descriptors = __webpack_require__(7);
+
+// EXTERNAL MODULE: ./components/SeoTags.vue + 4 modules
+var SeoTags = __webpack_require__(344);
+
+// EXTERNAL MODULE: ./components/Button.vue + 4 modules
+var Button = __webpack_require__(136);
+
+// EXTERNAL MODULE: ./components/StarfieldHero.vue + 4 modules
+var StarfieldHero = __webpack_require__(441);
+
+// EXTERNAL MODULE: ./components/VideoModal.vue + 4 modules
+var VideoModal = __webpack_require__(385);
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/index.vue?vue&type=script&lang=js&
+
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(defineProperty["a" /* default */])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ var lib_vue_loader_options_pagesvue_type_script_lang_js_ = ({
+  components: {
+    Button: Button["default"],
+    StarfieldHero: StarfieldHero["default"],
+    SeoTags: SeoTags["default"],
+    VideoModal: VideoModal["default"]
+  },
+  data: function data() {
+    return {
+      latestPosts: [],
+      latestNews: [],
+      latestVideos: []
+    };
+  },
+  fetch: function (_fetch) {
+    function fetch() {
+      return _fetch.apply(this, arguments);
+    }
+
+    fetch.toString = function () {
+      return _fetch.toString();
+    };
+
+    return fetch;
+  }(function () {
+    var _this = this;
+
+    return Object(asyncToGenerator["a" /* default */])( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+      var _yield$Promise$allSet, _yield$Promise$allSet2, latestPosts, latestNews, latestVideos;
+
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return Promise.allSettled([fetch('https://blog.ipfs.io/index.json').then(function (res) {
+                return res.json();
+              }).then(function (data) {
+                return data.posts;
+              }), fetch('https://blog.ipfs.io/news.json').then(function (res) {
+                return res.json();
+              }).then(function (data) {
+                return data.news;
+              }), fetch('https://blog.ipfs.io/videos.json').then(function (res) {
+                return res.json();
+              }).then(function (data) {
+                return data.videos;
+              })]);
+
+            case 2:
+              _yield$Promise$allSet = _context.sent;
+              _yield$Promise$allSet2 = Object(slicedToArray["a" /* default */])(_yield$Promise$allSet, 3);
+              latestPosts = _yield$Promise$allSet2[0];
+              latestNews = _yield$Promise$allSet2[1];
+              latestVideos = _yield$Promise$allSet2[2];
+
+              if (latestPosts.status === 'fulfilled') {
+                _this.latestPosts = latestPosts.value;
+              }
+
+              if (latestNews.status === 'fulfilled') {
+                _this.latestNews = latestNews.value;
+              }
+
+              if (latestVideos.status === 'fulfilled') {
+                _this.latestVideos = latestVideos.value;
+              }
+
+            case 10:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  }),
+  fetchOnServer: false,
+  methods: {
+    onCTAClick: function onCTAClick(data) {
+      this.$countly.trackEvent(this.$countly.events.CTA_CLICK, _objectSpread({
+        path: this.$route.path
+      }, data));
+    },
+    openVideoModal: function openVideoModal(video) {
+      this.$refs.videoModal.openModal(video);
+    }
+  }
+});
+// CONCATENATED MODULE: ./pages/index.vue?vue&type=script&lang=js&
+ /* harmony default export */ var pagesvue_type_script_lang_js_ = (lib_vue_loader_options_pagesvue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./pages/index.vue?vue&type=style&index=0&id=01741338&scoped=true&lang=css&
+var pagesvue_type_style_index_0_id_01741338_scoped_true_lang_css_ = __webpack_require__(455);
+
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__(11);
+
+// CONCATENATED MODULE: ./pages/index.vue
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  pagesvue_type_script_lang_js_,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  "01741338",
+  null
+  
+)
+
+/* harmony default export */ var pages = __webpack_exports__["default"] = (component.exports);
+
+/* nuxt-component-imports */
+installComponents(component, {SeoTags: __webpack_require__(344).default,Button: __webpack_require__(136).default,StarfieldHero: __webpack_require__(441).default,Icon: __webpack_require__(43).default,Link: __webpack_require__(24).default,Divider: __webpack_require__(386).default,VideoModal: __webpack_require__(385).default})
+
+
+/***/ })
+
+}]);��

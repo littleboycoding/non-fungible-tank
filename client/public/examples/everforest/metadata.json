@@ -1,7 +1,7 @@
 {
   "name": "Everforest",
   "description": "Reliable, classic tank",
-  "image": "/examples/everforest/everforest.png",
+  "image": "https://ipfs.io/ipfs/QmSzXaQY5GQmtAJKed8mZbB5BUGm7Q86JadStXqoqMY5eY?filename=everforest.png",
   "health": 10,
   "speed": 1.5,
   "rotateSpeed": 2.5,
@@ -13,9 +13,9 @@
     "y": 9.475
   },
   "assets": {
-    "behavior": "/examples/everforest/behavior.js",
-    "body": "/examples/everforest/body.png",
-    "cannon": "/examples/everforest/cannon.png",
-    "bullet": "/examples/everforest/bullet.png"
+    "behavior": "https://ipfs.io/ipfs/QmP5SKSvT7oqDbRpjBCfb2XeAP5NPmtnGRkDHmEHKSnUqQ?filename=behavior.js",
+    "body": "https://ipfs.io/ipfs/QmVQfrmrMdysTEmJZzpy26RsSyHuyc4WTgW8x7LuMfp6tk?filename=body.png",
+    "cannon": "https://ipfs.io/ipfs/QmeqYe6TMiMUMRoJ1yA74QKLR8FMeHjJeRiHLkUYV6Dq4j?filename=cannon.png",
+    "bullet": "https://ipfs.io/ipfs/QmbE3fRTaieGwefo9m6GnSsxaBcxcoVtRggDETfR6S2MBT?filename=bullet.png"
   }
 }

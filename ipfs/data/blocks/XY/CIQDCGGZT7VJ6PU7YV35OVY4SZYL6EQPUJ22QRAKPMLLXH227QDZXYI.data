@@ -1,0 +1,376 @@
+
+ÏW‰W(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[14,4,5,6],{
+
+/***/ 344:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/SeoTags.vue?vue&type=template&id=3df054af&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (false)?undefined:_vm._e()}
+var staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./components/SeoTags.vue?vue&type=template&id=3df054af&
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.js
+var es_symbol = __webpack_require__(2);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.description.js
+var es_symbol_description = __webpack_require__(51);
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/SeoTags.vue?vue&type=script&lang=js&
+
+
+//
+//
+//
+//
+/* harmony default export */ var SeoTagsvue_type_script_lang_js_ = ({
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    description: {
+      type: String,
+      required: true
+    },
+    image: {
+      type: String,
+      default: 'https://ipfs.io/images/social-card.png'
+    }
+  },
+  head: function head() {
+    return {
+      meta: [{
+        hid: 'description',
+        name: 'description',
+        content: this.description
+      }, {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary'
+      }, {
+        hid: 'twitter:title',
+        name: 'twitter:title',
+        content: this.title
+      }, {
+        hid: 'twitter:description',
+        name: 'twitter:description',
+        content: this.description
+      }, {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content: this.image
+      }, {
+        hid: 'twitter:image:alt',
+        name: 'twitter:image:alt',
+        content: this.title
+      }, {
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: '@ipfs'
+      }, {
+        hid: 'og:title',
+        property: 'og:title',
+        content: this.title
+      }, {
+        hid: 'og:description',
+        property: 'og:description',
+        content: this.description
+      }, {
+        hid: 'og:image',
+        property: 'og:image',
+        content: this.image
+      }, {
+        hid: 'og:image:secure_url',
+        property: 'og:image:secure_url',
+        content: this.image
+      }, {
+        hid: 'og:image:alt',
+        property: 'og:image:alt',
+        content: this.title
+      }]
+    };
+  }
+});
+// CONCATENATED MODULE: ./components/SeoTags.vue?vue&type=script&lang=js&
+ /* harmony default export */ var components_SeoTagsvue_type_script_lang_js_ = (SeoTagsvue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__(11);
+
+// CONCATENATED MODULE: ./components/SeoTags.vue
+
+
+
+
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  components_SeoTagsvue_type_script_lang_js_,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var SeoTags = __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ 346:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Hero.vue?vue&type=template&id=3f4adf9f&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"bg-gradient-6 pt-20 pb-10 lg:py-20"},[_c('div',{staticClass:"grid-margins pt-4"},[_c('div',{staticClass:"max-w-6xl mx-auto"},[_c('h1',{staticClass:"text-white mt-4"},[_vm._v(_vm._s(_vm.title))]),_vm._v(" "),_c('h2',{staticClass:"text-white mt-8 max-w-4xl"},[_vm._v("\n        "+_vm._s(_vm.description)+"\n      ")])])])])}
+var staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./components/Hero.vue?vue&type=template&id=3f4adf9f&
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Hero.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ var Herovue_type_script_lang_js_ = ({
+  name: 'Hero',
+  props: {
+    title: {
+      type: String,
+      default: ''
+    },
+    description: {
+      type: String,
+      default: ''
+    }
+  }
+});
+// CONCATENATED MODULE: ./components/Hero.vue?vue&type=script&lang=js&
+ /* harmony default export */ var components_Herovue_type_script_lang_js_ = (Herovue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__(11);
+
+// CONCATENATED MODULE: ./components/Hero.vue
+
+
+
+
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  components_Herovue_type_script_lang_js_,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var Hero = __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ 348:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/MarkdownContent.vue?vue&type=template&id=27a93625&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('seo-tags',{attrs:{"title":_vm.content.title + ' | IPFS',"description":_vm.content.description}}),_vm._v(" "),_c('Hero',{attrs:{"title":_vm.content.title,"description":_vm.content.description}}),_vm._v(" "),_c('article',{staticClass:"grid-margins py-8 px-2 sm:px-0"},[_c('nuxt-content',{staticClass:"prose max-w-5xl",attrs:{"document":_vm.content}})],1)],1)}
+var staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./components/MarkdownContent.vue?vue&type=template&id=27a93625&
+
+// EXTERNAL MODULE: ./components/Hero.vue + 4 modules
+var Hero = __webpack_require__(346);
+
+// EXTERNAL MODULE: ./components/SeoTags.vue + 4 modules
+var SeoTags = __webpack_require__(344);
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/MarkdownContent.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ var MarkdownContentvue_type_script_lang_js_ = ({
+  name: 'MarkdownContent',
+  components: {
+    Hero: Hero["default"],
+    SeoTags: SeoTags["default"]
+  },
+  props: {
+    content: {
+      type: Object,
+      required: true
+    }
+  }
+});
+// CONCATENATED MODULE: ./components/MarkdownContent.vue?vue&type=script&lang=js&
+ /* harmony default export */ var components_MarkdownContentvue_type_script_lang_js_ = (MarkdownContentvue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__(11);
+
+// CONCATENATED MODULE: ./components/MarkdownContent.vue
+
+
+
+
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  components_MarkdownContentvue_type_script_lang_js_,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var MarkdownContent = __webpack_exports__["default"] = (component.exports);
+
+/* nuxt-component-imports */
+installComponents(component, {SeoTags: __webpack_require__(344).default,Hero: __webpack_require__(346).default})
+
+
+/***/ }),
+
+/***/ 571:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/legal.vue?vue&type=template&id=33dc01e2&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('MarkdownContent',{attrs:{"content":_vm.legal}})}
+var staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./pages/legal.vue?vue&type=template&id=33dc01e2&
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js
+var asyncToGenerator = __webpack_require__(13);
+
+// EXTERNAL MODULE: ./node_modules/regenerator-runtime/runtime.js
+var runtime = __webpack_require__(52);
+
+// EXTERNAL MODULE: ./components/MarkdownContent.vue + 4 modules
+var MarkdownContent = __webpack_require__(348);
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/legal.vue?vue&type=script&lang=js&
+
+
+//
+//
+//
+//
+
+/* harmony default export */ var legalvue_type_script_lang_js_ = ({
+  components: {
+    MarkdownContent: MarkdownContent["default"]
+  },
+  asyncData: function asyncData(_ref) {
+    return Object(asyncToGenerator["a" /* default */])( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+      var $content, legal;
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              $content = _ref.$content;
+              _context.next = 3;
+              return $content('legal').fetch();
+
+            case 3:
+              legal = _context.sent;
+              return _context.abrupt("return", {
+                legal: legal
+              });
+
+            case 5:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  },
+  head: function head() {
+    return {
+      title: 'Legal | IPFS'
+    };
+  }
+});
+// CONCATENATED MODULE: ./pages/legal.vue?vue&type=script&lang=js&
+ /* harmony default export */ var pages_legalvue_type_script_lang_js_ = (legalvue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__(11);
+
+// CONCATENATED MODULE: ./pages/legal.vue
+
+
+
+
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  pages_legalvue_type_script_lang_js_,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var legal = __webpack_exports__["default"] = (component.exports);
+
+/* nuxt-component-imports */
+installComponents(component, {MarkdownContent: __webpack_require__(348).default})
+
+
+/***/ })
+
+}]);‰W

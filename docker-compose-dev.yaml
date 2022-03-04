@@ -3,25 +3,33 @@ services:
   wss:
     build:
       context: ./server
-    command: [ "npm", "run", "dev" ]
-    container_name: nft-client-dev
+    command: [ "dev" ]
+    container_name: nft-server-dev
     expose:
-      - 8080
+      - 5050
     environment:
-      - PORT=8080
+      - PORT=5050
     ports:
-      - 8080:8080
+      - 5050:5050
 
   client:
     build: ./client
-    container_name: nft-server-dev
+    container_name: nft-client-dev
     depends_on:
       - wss
     volumes:
       - ./client/public:/client/public
-    expose:
-      - 5000
     environment:
       - PORT=5000
     ports:
       - 5000:5000
+
+  ipfs:
+    image: ipfs/go-ipfs
+    ports:
+      - 4001:4001
+      - 5001:5001
+      - 8080:8080
+    volumes:
+      - ./ipfs/data:/data/ipfs
+      - ./ipfs/staging:/export

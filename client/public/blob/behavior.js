@@ -1,9 +1,12 @@
 // Standard behavior
 
+import { getAngleBetweenPoints, moveAtAngle } from "../chip/utils.js";
 import { Bullet } from "./index.js";
 
 function tankBehavior(chip, tank) {
   const shell = chip.shell.players.get(tank.uuid);
+
+  if (tank.state.destructing) return;
 
   if (shell.mouseDown.has("Left")) {
     tank.moveTo(shell.mousePosition.x, shell.mousePosition.y);
@@ -45,6 +48,51 @@ function tankBehavior(chip, tank) {
 
     if (isArrived) tank.state.movingTo = false;
   }
+
+  for (let i = 0; i < tank.state.knockback.length; i++) {
+    tank.state.knockback[i].progress -= 0.1;
+
+    const { progress, angle, force } = tank.state.knockback[i];
+    const { x, y } = moveAtAngle(easeOutCubic(progress) * force, angle);
+
+    tank.x += x;
+    tank.y += y;
+  }
+
+  tank.state.knockback = tank.state.knockback.filter((f) => f.progress > 0);
+
+  const tanks = chip.queryBlob("tank");
+  for (let i = 0; i < tanks.length; i++) {
+    if (tank.uuid !== tanks[i].uuid && chip.utils.isCollision(tank, tanks[i])) {
+      tank.state.health = 0;
+      tanks[i].state.health = 0;
+    }
+  }
+
+  if (tank.state.health <= 0 && !tank.state.destructing) {
+    tank.state.destructing = 5;
+    tank.state.movingTo = false;
+    const toggle = () => {
+      tank.state.destructing -= 1;
+      tank.opacity = tank.opacity === 0 ? 1 : 0;
+      if (tank.state.destructing > 0) setTimeout(toggle, 500);
+      else {
+        tank.destroyed = true;
+        tank.state.cannon.destroyed = true;
+        setTimeout(() => {
+          tank.opacity = 1;
+          tank.state.destructing = false;
+          tank.state.health = tank.state.metadata.health;
+          tank.x = shell.mousePosition.x - tank.sprite.width / 2;
+          tank.y = shell.mousePosition.y - tank.sprite.height / 2;
+          tank.state.knockback = [];
+          tank.destroyed = false;
+          tank.state.cannon.destroyed = false;
+        }, 1000);
+      }
+    };
+    toggle();
+  }
 }
 
 function cannonBehavior(chip, cannon) {
@@ -52,9 +100,11 @@ function cannonBehavior(chip, cannon) {
   const shell = chip.shell.players.get(tank.uuid);
 
   // Check if tank destroyed
-  if (tank.destroyed) {
-    return (cannon.destroyed = true);
-  }
+  cannon.destroyed = tank.destroyed;
+  cannon.state.hurt = tank.state.hurt;
+  cannon.opacity = tank.opacity;
+  if (cannon.destroyed) return;
+  if (tank.state.destructing) return;
 
   // Pin cannon to it belong tank
   cannon.x = tank.x + tank.sprite.width / 2 - cannon.origin.x;
@@ -108,13 +158,47 @@ function bulletBehavior(chip, bullet) {
     const tank = tanks[i];
     if (
       tank.uuid !== bullet.state.belongTo &&
-      chip.utils.isCollision(bullet, tank) &&
-      !tank.destroyed
+      chip.utils.isCollision(bullet, tank)
     ) {
-      tank.health -= bullet.state.damage;
+      tank.state.knockback.push({
+        angle: bullet.angle,
+        progress: 1,
+        force: bullet.state.damage,
+      });
+      tank.state.hurt = true;
+      setTimeout(() => {
+        tank.state.hurt = false;
+      }, 200);
+      tank.state.health -= bullet.state.damage;
       bullet.destroyed = true;
     }
   }
 }
 
-export { tankBehavior, cannonBehavior, bulletBehavior };
+function easeOutCubic(x) {
+  return 1 - (1 - x) ** 3;
+}
+
+function buttonBehavior(chip, button) {
+  const hover = chip.utils.isCollision(
+    {
+      x: chip.mousePosition.x,
+      y: chip.mousePosition.y,
+      sprite: {
+        height: 10,
+        width: 10,
+      },
+    },
+    button
+  );
+
+  if (hover) {
+    button.sprite = button.hover;
+    button.hovering = true;
+  } else {
+    button.sprite = button.notHover;
+    button.hovering = false;
+  }
+}
+
+export { tankBehavior, cannonBehavior, bulletBehavior, buttonBehavior };

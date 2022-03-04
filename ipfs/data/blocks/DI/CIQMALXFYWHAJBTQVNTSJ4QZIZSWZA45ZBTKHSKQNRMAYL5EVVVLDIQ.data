@@ -1,0 +1,182 @@
+
+ëEãEudes_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(67);
+/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(18);
+/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(53);
+/* harmony import */ var core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(33);
+/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var core_js_modules_es_array_from_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(47);
+/* harmony import */ var core_js_modules_es_array_from_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_from_js__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(26);
+/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(2);
+/* harmony import */ var core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(51);
+/* harmony import */ var core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var core_js_modules_es_symbol_iterator_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(54);
+/* harmony import */ var core_js_modules_es_symbol_iterator_js__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_iterator_js__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(36);
+/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(1);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var requestIdleCallback = window.requestIdleCallback || function (cb) {
+  var start = Date.now();
+  return setTimeout(function () {
+    cb({
+      didTimeout: false,
+      timeRemaining: function timeRemaining() {
+        return Math.max(0, 50 - (Date.now() - start));
+      }
+    });
+  }, 1);
+};
+
+var cancelIdleCallback = window.cancelIdleCallback || function (id) {
+  clearTimeout(id);
+};
+
+var observer = window.IntersectionObserver && new window.IntersectionObserver(function (entries) {
+  entries.forEach(function (_ref) {
+    var intersectionRatio = _ref.intersectionRatio,
+        link = _ref.target;
+
+    if (intersectionRatio <= 0 || !link.__prefetch) {
+      return;
+    }
+
+    link.__prefetch();
+  });
+});
+/* harmony default export */ __webpack_exports__["a"] = ({
+  name: 'NuxtLink',
+  extends: vue__WEBPACK_IMPORTED_MODULE_15__[/* default */ "a"].component('RouterLink'),
+  props: {
+    prefetch: {
+      type: Boolean,
+      default: true
+    },
+    noPrefetch: {
+      type: Boolean,
+      default: false
+    }
+  },
+  mounted: function mounted() {
+    if (this.prefetch && !this.noPrefetch) {
+      this.handleId = requestIdleCallback(this.observe, {
+        timeout: 2e3
+      });
+    }
+  },
+  beforeDestroy: function beforeDestroy() {
+    cancelIdleCallback(this.handleId);
+
+    if (this.__observed) {
+      observer.unobserve(this.$el);
+      delete this.$el.__prefetch;
+    }
+  },
+  methods: {
+    observe: function observe() {
+      // If no IntersectionObserver, avoid prefetching
+      if (!observer) {
+        return;
+      } // Add to observer
+
+
+      if (this.shouldPrefetch()) {
+        this.$el.__prefetch = this.prefetchLink.bind(this);
+        observer.observe(this.$el);
+        this.__observed = true;
+      }
+    },
+    shouldPrefetch: function shouldPrefetch() {
+      var ref = this.$router.resolve(this.to, this.$route, this.append);
+      var Components = ref.resolved.matched.map(function (r) {
+        return r.components.default;
+      });
+      return Components.filter(function (Component) {
+        return ref.href || typeof Component === 'function' && !Component.options && !Component.__prefetched;
+      }).length;
+    },
+    canPrefetch: function canPrefetch() {
+      var conn = navigator.connection;
+      var hasBadConnection = this.$nuxt.isOffline || conn && ((conn.effectiveType || '').includes('2g') || conn.saveData);
+      return !hasBadConnection;
+    },
+    getPrefetchComponents: function getPrefetchComponents() {
+      var ref = this.$router.resolve(this.to, this.$route, this.append);
+      var Components = ref.resolved.matched.map(function (r) {
+        return r.components.default;
+      });
+      return Components.filter(function (Component) {
+        return typeof Component === 'function' && !Component.options && !Component.__prefetched;
+      });
+    },
+    prefetchLink: function prefetchLink() {
+      if (!this.canPrefetch()) {
+        return;
+      } // Stop observing this link (in case of internet connection changes)
+
+
+      observer.unobserve(this.$el);
+      var Components = this.getPrefetchComponents();
+
+      var _iterator = _createForOfIteratorHelper(Components),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var Component = _step.value;
+          var componentOrPromise = Component();
+
+          if (componentOrPromise instanceof Promise) {
+            componentOrPromise.catch(function () {});
+          }
+
+          Component.__prefetched = true;
+        } // Preload the data only if not in preview mode
+
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      if (!this.$root.isPreview) {
+        var _this$$router$resolve = this.$router.resolve(this.to, this.$route, this.append),
+            href = _this$$router$resolve.href;
+
+        if (this.$nuxt) this.$nuxt.fetchPayload(href, true).catch(function () {});
+      }
+    }
+  }
+});
+
+/***/ })
+
+}]);ãE

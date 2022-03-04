@@ -94,7 +94,7 @@ class Chip {
           blob.y > this.canvas.height ||
           blob.y + blob.sprite.height < 0;
 
-        if (isOutBound) continue;
+        if (blob.name === "bullet" && isOutBound) continue;
 
         for (let b = 0; b < blob.behavior.length; b++) {
           blob.behavior[b](this, blob, utils);
@@ -107,7 +107,10 @@ class Chip {
           -(blob.y + blob.origin.y)
         );
 
+        this.ctx.filter = `opacity(${blob.opacity})`;
+        if (blob.state.hurt) this.ctx.filter = "sepia(100%)";
         this.ctx.drawImage(blob.sprite, blob.x, blob.y);
+        this.ctx.filter = "sepia(0)";
 
         this.ctx.setTransform(1, 0, 0, 1, 0, 0);
       } else if (blob instanceof BlobText) {
@@ -144,6 +147,7 @@ class Blob {
     this.state = state;
     this.x = 0;
     this.y = 0;
+    this.opacity = 1;
     this.uuid;
     this.angle = 0;
     this.destroyed = false;

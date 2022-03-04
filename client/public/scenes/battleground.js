@@ -1,9 +1,7 @@
 import { PlayerShell, wsHandler } from "../utils.js";
 
-// import faker from "https://unpkg.com/@faker-js/faker@6.0.0-alpha.7/dist/esm/index.js?module";
-
 function generateConnectionURL(address, metadata) {
-  return `ws://localhost:8080?address=${address}&metadata=${metadata}`;
+  return `ws://localhost:5050?address=${address}&metadata=${metadata}`;
 }
 
 function battleground(chip, address, metadata) {

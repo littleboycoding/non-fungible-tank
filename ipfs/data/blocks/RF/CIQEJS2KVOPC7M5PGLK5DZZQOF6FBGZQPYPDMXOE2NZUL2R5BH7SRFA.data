@@ -1,0 +1,1240 @@
+
+ÊºÀº(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0,3],{
+
+/***/ 353:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(367);
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(32).default
+var update = add("3bc65642", content, true, {"sourceMap":false});
+
+/***/ }),
+
+/***/ 366:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Divider_vue_vue_type_style_index_0_id_132ef3b3_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(353);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Divider_vue_vue_type_style_index_0_id_132ef3b3_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Divider_vue_vue_type_style_index_0_id_132ef3b3_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+
+
+/***/ }),
+
+/***/ 367:
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(31);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.i, ".divider[data-v-132ef3b3]{\n  width:3.125rem;\n  height:.1875rem;\n  border-radius:.1875rem\n}", ""]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {};
+module.exports = ___CSS_LOADER_EXPORT___;
+
+
+/***/ }),
+
+/***/ 386:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Divider.vue?vue&type=template&id=132ef3b3&scoped=true&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{staticClass:"divider block mx-auto bg-blueGreenLight"})}
+var staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./components/Divider.vue?vue&type=template&id=132ef3b3&scoped=true&
+
+// EXTERNAL MODULE: ./components/Divider.vue?vue&type=style&index=0&id=132ef3b3&scoped=true&lang=css&
+var Dividervue_type_style_index_0_id_132ef3b3_scoped_true_lang_css_ = __webpack_require__(366);
+
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__(11);
+
+// CONCATENATED MODULE: ./components/Divider.vue
+
+var script = {}
+
+
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  "132ef3b3",
+  null
+  
+)
+
+/* harmony default export */ var Divider = __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ 387:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(452);
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(32).default
+var update = add("9a5ba210", content, true, {"sourceMap":false});
+
+/***/ }),
+
+/***/ 388:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(454);
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(32).default
+var update = add("56d4ba39", content, true, {"sourceMap":false});
+
+/***/ }),
+
+/***/ 441:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/StarfieldHero.vue?vue&type=template&id=bc3dd708&scoped=true&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"\n    relative\n    bg-gradient-6\n    pt-20\n    h-screen\n    max-h-168\n    sm:max-h-1200\n    min-h-640\n  ",attrs:{"id":"stars"}},[_c('div',{staticClass:"hero-container absolute left-0 right-0 mx-auto grid-margins mb-20"},[(_vm.title)?_c('div',{staticClass:"flex flex-col justify-center items-center text-white"},[_c('h1',{staticClass:"pb-5 text-center"},[_vm._v(_vm._s(_vm.title))]),_vm._v(" "),(_vm.$slots.default)?_c('Divider',{staticClass:"mb-5"}):_vm._e(),_vm._v(" "),_vm._t("default")],2):_vm._e()]),_vm._v(" "),_c('button',{staticClass:"\n      absolute\n      left-0\n      bottom-0\n      text-xs\n      m-1.5\n      py-1.5\n      px-2\n      transition\n      duration-300\n      ease-in-out\n    ",attrs:{"id":"toggle-animation"}},[_vm._v("\n    Disable animation\n  ")]),_vm._v(" "),_c('a',{staticClass:"\n      view-more\n      block\n      absolute\n      bottom-8\n      w-full\n      sm:hidden\n      hover:opacity-75\n    ",attrs:{"href":"#why"}},[_c('Icon',{staticClass:"h-6 mx-auto",attrs:{"name":"down-arrow"}})],1)])}
+var staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./components/StarfieldHero.vue?vue&type=template&id=bc3dd708&scoped=true&
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js
+var asyncToGenerator = __webpack_require__(13);
+
+// EXTERNAL MODULE: ./node_modules/regenerator-runtime/runtime.js
+var runtime = __webpack_require__(52);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
+var es_object_to_string = __webpack_require__(18);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.iterator.js
+var es_string_iterator = __webpack_require__(26);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
+var web_dom_collections_iterator = __webpack_require__(36);
+
+// EXTERNAL MODULE: ./components/Icon.vue + 4 modules
+var Icon = __webpack_require__(43);
+
+// EXTERNAL MODULE: ./assets/js/stars.js
+var stars = __webpack_require__(444);
+var stars_default = /*#__PURE__*/__webpack_require__.n(stars);
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/StarfieldHero.vue?vue&type=script&lang=js&
+
+
+
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ var StarfieldHerovue_type_script_lang_js_ = ({
+  name: 'StarfieldHero',
+  components: {
+    Icon: Icon["default"]
+  },
+  props: {
+    title: {
+      type: String,
+      default: ''
+    }
+  },
+  mounted: function mounted() {
+    return Object(asyncToGenerator["a" /* default */])( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+      var PIXI;
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return __webpack_require__.e(/* import() */ 21).then(__webpack_require__.t.bind(null, 569, 7));
+
+            case 2:
+              PIXI = _context.sent;
+              stars_default()(PIXI);
+
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  }
+});
+// CONCATENATED MODULE: ./components/StarfieldHero.vue?vue&type=script&lang=js&
+ /* harmony default export */ var components_StarfieldHerovue_type_script_lang_js_ = (StarfieldHerovue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./components/StarfieldHero.vue?vue&type=style&index=0&lang=css&
+var StarfieldHerovue_type_style_index_0_lang_css_ = __webpack_require__(451);
+
+// EXTERNAL MODULE: ./components/StarfieldHero.vue?vue&type=style&index=1&id=bc3dd708&scoped=true&lang=css&
+var StarfieldHerovue_type_style_index_1_id_bc3dd708_scoped_true_lang_css_ = __webpack_require__(453);
+
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__(11);
+
+// CONCATENATED MODULE: ./components/StarfieldHero.vue
+
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  components_StarfieldHerovue_type_script_lang_js_,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  "bc3dd708",
+  null
+  
+)
+
+/* harmony default export */ var StarfieldHero = __webpack_exports__["default"] = (component.exports);
+
+/* nuxt-component-imports */
+installComponents(component, {Divider: __webpack_require__(386).default,Button: __webpack_require__(136).default,Icon: __webpack_require__(43).default})
+
+
+/***/ }),
+
+/***/ 444:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(229);
+
+__webpack_require__(56);
+
+__webpack_require__(3);
+
+__webpack_require__(4);
+
+__webpack_require__(445);
+
+__webpack_require__(446);
+
+module.exports = function (PIXI) {
+  var starsElement = document.getElementById('stars');
+
+  if (!starsElement) {
+    return;
+  }
+
+  var STAR_COLORS = [0xffffff, 0xffffff];
+  var FILL_COLOR = 0xffffff;
+  var LINE_COLOR = 0x6acad1;
+  var LINE_SPEED = 40;
+  var LINE_FADE_SECONDS = 15;
+  var LINE_OPACITY_MAX = 0.8;
+  var LINE_OPACITY_MIN = 0.05;
+  var LINE_FORK_CHANCE = 0.35; // 35% chance
+
+  var LINE_WIDTH = 1;
+  var HOPS = 10;
+  var NEW_LINE_ON_HOP = 8; // if more than hops, start a new one at last hop
+
+  var STAR_RADIUS_MAX = 4;
+  var STAR_RADIUS_MIN = 0.5;
+  var STAR_RADIUS_LARGE_MIN = 2; // small stars are smaller than this, larger stars are larger than this
+
+  var STAR_LARGE_CHANCE = 0.1; // 10% chance
+
+  var STAR_OPACITY_MAX = 0.9;
+  var STAR_OPACITY_MIN = 0.4;
+  var CELL_WIDTH_TARGET = 70; // canvas is divided into cells, for STARS_PER_CELL to populate
+
+  var CELL_HEIGHT_TARGET = 70; // this ensures good paths to traverse
+
+  var STARS_PER_CELL = 2;
+  var MAX_NEIGHBOR_DISTANCE = 300; // if a star is within this range, it can connect
+
+  var MAX_LINKS = 3;
+  var TWINKLE_SPEED = 6;
+  var TWINKLES_PER_SECOND_PER_STAR = 0.2;
+  var ANIMATION_INTERVAL = 1 / 24;
+  var CHECK_VISIBLE_INTERVAL = 3000; // ------- edit above
+
+  var _STAR_OPACITY_DIFF = STAR_OPACITY_MAX - STAR_OPACITY_MIN;
+
+  var _LINE_OPACITY_DIFF = LINE_OPACITY_MAX - LINE_OPACITY_MIN;
+
+  var _LINE_FADE_SPEED = 1 / LINE_FADE_SECONDS;
+
+  var _PIXEL_RATIO = window.devicePixelRatio || 1;
+
+  function isVisible(elm) {
+    var rect = elm.getBoundingClientRect();
+    var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+    return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+  }
+
+  function removeItem(list, item) {
+    list.splice(list.indexOf(item), 1);
+  }
+
+  function StarChart(div, pixi) {
+    this.div = div;
+    this.pixi = pixi;
+    this.pixi.utils.skipHello();
+    this.renderer = new pixi.CanvasRenderer(800, 600, {
+      antialias: true,
+      transparent: true,
+      resolution: _PIXEL_RATIO
+    }); // don't disable scrolling interactions
+
+    this.renderer.plugins.interaction.autoPreventDefault = false;
+    this.stage = new this.pixi.Container();
+    this.cellWidth = this.goalWidth = CELL_WIDTH_TARGET;
+    this.cellHeight = this.goalHeight = CELL_HEIGHT_TARGET;
+    this.starCount = STARS_PER_CELL;
+    this.running = false;
+    this.animationEnabled = true;
+    this.stars = {};
+    this.starList = [];
+    this.cells = [];
+    this.comets = [];
+    this.animatingStars = [];
+    this.removeAnimatingStars = [];
+    this.removeComets = [];
+    this.activeStar = null;
+    window.addEventListener('resize', function (e) {
+      this.setSize();
+    }.bind(this));
+    this.renderer.view.addEventListener('click', function (e) {
+      if (!this.animationEnabled) {
+        return;
+      }
+
+      this.createCometGroup(e.clientX, e.clientY);
+    }.bind(this));
+    div.appendChild(this.renderer.view);
+    this.setSize();
+    this.checkVisible();
+  }
+
+  (function () {
+    this.setAnimationEnabled = function (enabled) {
+      this.animationEnabled = enabled;
+      this.checkVisible();
+    };
+
+    this.checkVisible = function () {
+      if (!this.animationEnabled) {
+        this.pause();
+        return;
+      }
+
+      if (isVisible(this.renderer.view)) {
+        this.run();
+      } else {
+        this.pause();
+      }
+
+      setTimeout(this.checkVisible.bind(this), CHECK_VISIBLE_INTERVAL);
+    };
+
+    this.run = function () {
+      if (!this.running) {
+        this.running = true;
+        this.lastNow = window.performance.now();
+        this.animate();
+      }
+    };
+
+    this.pause = function () {
+      if (this.running) {
+        this.running = false;
+      }
+    };
+
+    this.setSize = function () {
+      var width = this.div.clientWidth;
+      var height = this.div.clientHeight; // window may resize without the div itself changing size, so don't reset
+      // if div has not resized
+
+      if (width === this.renderer.width && height === this.renderer.height) {
+        return;
+      }
+
+      this.renderer.view.style.width = width + 'px';
+      this.renderer.view.style.height = height + 'px';
+      this.renderer.resize(width, height);
+      this.gridX = Math.floor(this.renderer.view.width / this.goalWidth);
+      this.gridY = Math.floor(this.renderer.view.height / this.goalHeight);
+      this.cellWidth = this.renderer.view.width / this.gridX;
+      this.cellHeight = this.renderer.view.height / this.gridY;
+      this.comets.forEach(function (comet) {
+        comet.destroy();
+      });
+      this.starList.forEach(function (star) {
+        star.destroy();
+      });
+      this.stage.removeChildren();
+      this.setup();
+    };
+
+    this.createCometGroup = function (x, y) {
+      var star = this.findNearestStar(x, y);
+      this.comets.push(new CometGroup(this, star, undefined, HOPS, false));
+    };
+
+    this.findNearestStar = function (x, y) {
+      var star;
+      var minDist = this.div.clientWidth + this.div.clientHeight;
+      var cellX = Math.floor(x / this.cellWidth);
+      var cellY = Math.floor(y / this.cellHeight);
+      var startX = Math.max(cellX - 1, 0);
+      var endX = cellX + 1 < this.gridX ? cellX + 1 : cellX;
+      var startY = Math.max(cellY - 1, 0);
+      var endY = cellY + 1 < this.gridY ? cellY + 1 : cellY;
+
+      for (var cx = startX; cx <= endX; cx++) {
+        for (var cy = startY; cy <= endY; cy++) {
+          this.cells[cx][cy].forEach(function (other) {
+            var dist = Math.sqrt(Math.pow(x - other.x, 2) + Math.pow(y - other.y, 2));
+
+            if (dist < minDist) {
+              minDist = dist;
+              star = other;
+            }
+          });
+        }
+      }
+
+      return star;
+    };
+
+    this.setup = function () {
+      this.stars = {};
+      this.starList = [];
+      this.cells = [];
+      this.comets = [];
+      this.removeComets = [];
+      this.activeStar = null;
+      this.animatingStars = [];
+      this.removeAnimatingStars = [];
+      this.lastNow = window.performance.now();
+
+      for (var gx = 0; gx < this.gridX; gx++) {
+        var row = [];
+
+        for (var gy = 0; gy < this.gridY; gy++) {
+          var col = [];
+
+          for (var n = 0; n < this.starCount; n++) {
+            var x = Math.round(Math.random() * this.cellWidth + gx * this.cellWidth);
+            var y = Math.round(Math.random() * this.cellHeight + gy * this.cellHeight);
+            var star = new Star(this, x, y, gx, gy);
+            this.stars[star.id] = star;
+            this.starList.push(star);
+            col.push(star);
+          }
+
+          row.push(col);
+        }
+
+        this.cells.push(row);
+      }
+
+      this.twinkleRate = 1 / (TWINKLES_PER_SECOND_PER_STAR * this.starList.length);
+      this.starList.forEach(function (star) {
+        star.setLinks();
+      });
+      this.comets.push(new CometGroup(this, this.randomStar(), undefined, HOPS, true, 1));
+      this.comets.push(new CometGroup(this, this.randomStar(), undefined, HOPS, true));
+      this.comets.push(new CometGroup(this, this.randomStar(), undefined, HOPS, true));
+      this.twinkleStar();
+    };
+
+    this.twinkleStar = function () {
+      var star = this.randomStar();
+      star.twinkling = true;
+      this.animatingStars.push(star);
+    };
+
+    this.randomStar = function () {
+      return this.starList[Math.floor(Math.random() * this.starList.length)];
+    };
+
+    var lastTwinkle = 0;
+
+    this.animate = function () {
+      if (!this.running) {
+        return;
+      }
+
+      window.requestAnimationFrame(this.animate.bind(this));
+      var now = window.performance.now();
+      var dt = (now - this.lastNow) / 1000;
+      lastTwinkle += dt;
+
+      if (dt < ANIMATION_INTERVAL) {
+        return;
+      }
+
+      this.lastNow = now;
+
+      if (lastTwinkle > this.twinkleRate) {
+        lastTwinkle = 0;
+        this.twinkleStar();
+      }
+
+      this.animateStars(dt);
+      this.animateComets(dt);
+      this.render();
+    };
+
+    this.animateStars = function (dt) {
+      var r, l;
+
+      for (r = 0, l = this.animatingStars.length; r < l; r++) {
+        this.animatingStars[r].animate(dt);
+      }
+
+      for (r = 0, l = this.removeAnimatingStars.length; r < l; r++) {
+        removeItem(this.animatingStars, this.removeAnimatingStars[r]);
+      }
+
+      this.removeAnimatingStars = [];
+    };
+
+    this.animateComets = function (dt) {
+      var r, l;
+
+      for (r = 0, l = this.comets.length; r < l; r++) {
+        this.comets[r].animate(dt);
+      }
+
+      for (r = 0, l = this.removeComets.length; r < l; r++) {
+        removeItem(this.comets, this.removeComets[r]);
+      }
+
+      this.removeComets = [];
+    };
+
+    this.render = function () {
+      this.renderer.render(this.stage);
+    };
+  }).call(StarChart.prototype);
+
+  function CometGroup(game, star, next, hops, addAnother, alpha) {
+    this.children = [];
+    this.game = game;
+    this.hops = hops;
+    this.visited = {};
+    this.ended = 0;
+    this.alpha = 1;
+    this.fading = false;
+    this.addAnother = addAnother;
+    this.added = !addAnother;
+    this.lineAlpha = alpha || LINE_OPACITY_MIN + Math.random() * _LINE_OPACITY_DIFF;
+    this.addComet(star, next, hops);
+  }
+
+  (function () {
+    this.addComet = function (star, next, hops) {
+      if (!this.fading) {
+        this.children.push(new Comet(this.game, this, star, next, hops));
+      }
+    };
+
+    this.animate = function (dt) {
+      if (this.fading) {
+        this.alpha = Math.max(this.alpha - dt * _LINE_FADE_SPEED, 0);
+        var r = STAR_COLORS[1] >> 16 & 0xff;
+        var g = STAR_COLORS[1] >> 8 & 0xff;
+        var b = STAR_COLORS[1] & 0xff;
+        var r2 = r + (0xff - r) * (1 - this.alpha);
+        var g2 = g + (0xff - g) * (1 - this.alpha);
+        var b2 = b + (0xff - b) * (1 - this.alpha);
+        var color = r2 << 16 | g2 << 8 | b2;
+
+        var _i, _l;
+
+        var vkeys = Object.keys(this.visited);
+
+        for (_i = 0, _l = vkeys.length; _i < _l; _i++) {
+          this.game.stars[vkeys[_i]].sprite.tint = color;
+        }
+      }
+
+      var i, l;
+
+      for (i = 0, l = this.children.length; i < l; i++) {
+        this.children[i].animate(dt, this.alpha);
+      }
+
+      if (this.alpha === 0) {
+        this.destroy();
+      }
+    };
+
+    this.didHop = function (hop) {
+      if (!this.added && HOPS - hop === NEW_LINE_ON_HOP) {
+        this.added = true;
+        this.game.comets.push(new CometGroup(this.game, this.game.randomStar(), undefined, HOPS, this.addAnother));
+      }
+    };
+
+    this.end = function () {
+      this.ended++;
+
+      if (this.ended === this.children.length) {
+        this.fade();
+      }
+    };
+
+    this.fade = function () {
+      if (this.fading) {
+        return;
+      }
+
+      this.fading = true;
+
+      for (var i = 0, l = this.children.length; i < l; i++) {
+        this.children[i].fade();
+      }
+
+      if (!this.added) {
+        this.added = true;
+        this.game.comets.push(new CometGroup(this.game, this.game.randomStar(), undefined, HOPS, this.addAnother));
+      }
+    };
+
+    this.destroy = function () {
+      var i, l;
+
+      for (i = 0, l = this.children.length; i < l; i++) {
+        this.children[i].destroy();
+      }
+
+      var vkeys = Object.keys(this.visited);
+
+      for (i = 0, l = vkeys.length; i < l; i++) {
+        this.game.stars[vkeys[i]].sprite.tint = STAR_COLORS[1];
+      }
+
+      this.game.removeComets.push(this);
+    };
+  }).call(CometGroup.prototype);
+
+  function Comet(game, parent, star, next, hops) {
+    this.game = game;
+    this.parent = parent;
+    this.fromStar = star;
+    this.fromStar.sprite.tint = STAR_COLORS[0];
+    this.nextStar = next;
+    this.angle = null;
+    this.trip = 0;
+    this.particles = [];
+    this.aparticles = [];
+    this.hops = hops;
+    this.speed = LINE_SPEED;
+    this.sprite = new this.game.pixi.Sprite();
+    this.sprite.anchor = new this.game.pixi.Point(0.5, 0.5);
+    this.sprite.scale = new this.game.pixi.Point(0.5, 0.5);
+    this.sprite.alpha = 0;
+    this.game.stage.addChild(this.sprite);
+    this.dist = null;
+    this.lineColor = LINE_COLOR;
+    this.lines = [];
+    this.currentLine = new this.game.pixi.Graphics();
+    this.ending = false;
+    this.fading = false;
+
+    if (this.nextStar === undefined) {
+      this.pickNext();
+    }
+  }
+
+  (function () {
+    this.setNext = function (first) {
+      this.parent.visited[this.fromStar.id] = true;
+      this.parent.visited[this.nextStar.id] = true;
+      this.speed = LINE_SPEED * (1 - Math.abs(this.fromStar.radius - this.nextStar.radius) / 3 * 0.7);
+      this.speed *= 0.5 + (this.fromStar.radius + this.nextStar.radius - 2) / 6 * 0.5;
+
+      if (!first && this.hops > 0 && Math.random() < LINE_FORK_CHANCE) {
+        this.parent.addComet(this.fromStar, undefined, this.hops - 1, false);
+      }
+
+      var dx = this.fromStar.x - this.nextStar.x;
+      var dy = this.fromStar.y - this.nextStar.y;
+      this.angle = Math.atan2(dy, dx) + Math.PI;
+      this.dist = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
+      this.currentLine = new this.game.pixi.Graphics();
+      this.currentLine.alpha = this.parent.lineAlpha;
+      this.currentLine.lineStyle(LINE_WIDTH, this.lineColor, 1);
+      this.currentLine.moveTo(-2, -2);
+      this.currentLine.lineTo(-1, -1);
+      this.game.stage.addChild(this.currentLine);
+    };
+
+    this.pickNext = function (first) {
+      if (this.hops <= 0) {
+        return this.end();
+      }
+
+      this.trip = 0;
+      var ikeys = Object.keys(this.fromStar.links);
+      var keys = [];
+
+      for (var i = 0, l = ikeys.length; i < l; i++) {
+        var key = ikeys[i];
+
+        if (!this.parent.visited[key]) {
+          keys.push(key);
+        }
+      }
+
+      if (keys.length === 0) {
+        return this.end();
+      }
+
+      this.nextStar = this.fromStar.links[keys[Math.floor(Math.random() * keys.length)]];
+      this.setNext();
+
+      if (!first) {
+        this.hops--;
+        this.parent.didHop(this.hops);
+      }
+    };
+
+    this.end = function () {
+      this.ending = true;
+      this.parent.end();
+    };
+
+    this.fade = function () {
+      this.fading = true;
+    };
+
+    this.animate = function (dt, alpha) {
+      if (this.ending && !this.fading) {
+        return;
+      }
+
+      this.trip += dt * this.speed;
+
+      if (this.ending && alpha !== 1) {
+        for (var i = 0, l = this.lines.length; i < l; i++) {
+          this.lines[i].alpha = alpha * this.parent.lineAlpha;
+        }
+
+        this.currentLine.alpha = alpha * this.parent.lineAlpha;
+      }
+
+      if (!this.ending) {
+        this.sprite.x = this.fromStar.x + Math.cos(this.angle) * this.trip;
+        this.sprite.y = this.fromStar.y + Math.sin(this.angle) * this.trip;
+        this.currentLine.clear();
+        this.currentLine.lineStyle(LINE_WIDTH, this.lineColor, 1);
+        this.currentLine.moveTo(this.fromStar.x, this.fromStar.y);
+
+        if (this.trip >= this.dist) {
+          this.currentLine.lineTo(this.nextStar.x, this.nextStar.y);
+          this.lines.push(this.currentLine);
+          this.nextStar.sprite.tint = STAR_COLORS[0];
+          this.fromStar = this.nextStar;
+          this.pickNext();
+        } else {
+          this.currentLine.lineTo(this.sprite.x, this.sprite.y);
+        }
+      }
+    };
+
+    this.destroy = function () {
+      this.game.stage.removeChild(this.sprite);
+
+      for (var i = 0, l = this.lines.length; i < l; i++) {
+        this.game.stage.removeChild(this.lines[i]);
+      }
+
+      this.game.stage.removeChild(this.currentLine);
+    };
+  }).call(Comet.prototype);
+
+  function Star(game, x, y, cellX, cellY) {
+    this.game = game;
+    this.x = x;
+    this.y = y;
+    this.cellX = cellX;
+    this.cellY = cellY;
+    this.sprite = new this.game.pixi.Graphics();
+    this.sprite.beginFill(FILL_COLOR, 1);
+    var large = Math.random() < STAR_LARGE_CHANCE;
+    var minRadius = large ? STAR_RADIUS_LARGE_MIN : STAR_RADIUS_MIN;
+    var maxRadius = large ? STAR_RADIUS_MAX : STAR_RADIUS_LARGE_MIN;
+    this.radius = minRadius + Math.random() * (maxRadius - minRadius);
+    this.sprite.drawCircle(0, 0, this.radius);
+    this.sprite.endFill();
+    this.targetAlpha = this.sprite.alpha = STAR_OPACITY_MAX - Math.random() * _STAR_OPACITY_DIFF;
+    this.sprite.x = x;
+    this.sprite.y = y;
+    this.sprite.anchor = new this.game.pixi.Point(0.5, 0.5);
+    this.sprite.tint = STAR_COLORS[1];
+    this.game.stage.addChild(this.sprite);
+    this.links = {};
+    this.lines = {};
+    this.twinkling = false;
+    this.id = this.x + 'x' + this.y;
+    this.alpha = 0;
+  }
+
+  (function () {
+    this.animate = function (dt) {
+      if (this.twinkling) {
+        this.alpha += dt * TWINKLE_SPEED;
+        this.sprite.alpha = this.targetAlpha - Math.sin(this.alpha) * (this.targetAlpha - STAR_OPACITY_MIN);
+
+        if (this.alpha >= Math.PI) {
+          this.alpha = 0;
+          this.sprite.alpha = this.targetAlpha;
+          this.twinkling = false;
+          this.game.removeAnimatingStars.push(this);
+        }
+      }
+    };
+
+    this.setLinks = function () {
+      var near = [];
+      var startX = Math.max(this.cellX - 1, 0);
+      var endX = this.cellX + 1 < this.game.gridX ? this.cellX + 1 : this.cellX;
+      var startY = Math.max(this.cellY - 1, 0);
+      var endY = this.cellY + 1 < this.game.gridY ? this.cellY + 1 : this.cellY;
+      var neighbor;
+
+      for (var cx = startX; cx <= endX; cx++) {
+        for (var cy = startY; cy <= endY; cy++) {
+          this.game.cells[cx][cy].forEach(function (other) {
+            if (other !== this && !Object.prototype.hasOwnProperty.call(this.links, other.id)) {
+              var dist = Math.sqrt(Math.pow(this.x - other.x, 2) + Math.pow(this.y - other.y, 2));
+              near.push({
+                star: other,
+                dist: dist
+              });
+            }
+          }.bind(this));
+        }
+      }
+
+      near.sort(function (a, b) {
+        return a.dist - b.dist;
+      });
+
+      for (var i = 0; near[i].dist < MAX_NEIGHBOR_DISTANCE && Object.keys(this.links).length <= MAX_LINKS; i++) {
+        neighbor = near[i].star;
+        this.links[neighbor.id] = neighbor;
+        neighbor.links[this.id] = this;
+      }
+
+      if (Object.keys(this.links).length === 0) {
+        neighbor = near[0].star;
+        this.links[neighbor.id] = neighbor;
+        neighbor.links[this.id] = this;
+      }
+
+      this.game.stage.removeChild(this.sprite);
+      this.game.stage.addChild(this.sprite);
+    };
+
+    this.destroy = function () {
+      this.game.stage.removeChild(this.sprite);
+      Object.keys(this.links).forEach(function (linkId) {
+        delete this.links[linkId].links[this.id];
+      }.bind(this));
+      delete this.game.stars[this.id];
+      removeItem(this.game.starList, this);
+    };
+  }).call(Star.prototype);
+  var ANIMATION_ENABLED_KEY = 'ipfs.io:animation-enabled';
+  var ENABLE_ANIMATION_LABEL = 'Enable animation';
+  var DISABLE_ANIMATION_LABEL = 'Disable animation';
+  var starChart = new StarChart(starsElement, PIXI);
+  var toggleAnimationButton = document.getElementById('toggle-animation');
+
+  function setAnimationEnabled(enabled) {
+    window.localStorage.setItem(ANIMATION_ENABLED_KEY, enabled);
+    var buttonLabel = enabled ? DISABLE_ANIMATION_LABEL : ENABLE_ANIMATION_LABEL;
+    toggleAnimationButton.textContent = buttonLabel;
+    starChart.setAnimationEnabled(enabled);
+  }
+
+  toggleAnimationButton.addEventListener('click', function (event) {
+    setAnimationEnabled(!starChart.animationEnabled);
+  });
+  var animationEnabled = window.localStorage.getItem(ANIMATION_ENABLED_KEY) !== 'false';
+  setAnimationEnabled(animationEnabled);
+
+  if (!animationEnabled) {
+    starChart.render();
+  }
+};
+
+/***/ }),
+
+/***/ 445:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $ = __webpack_require__(9);
+var createHTML = __webpack_require__(230);
+var forcedStringHTMLMethod = __webpack_require__(231);
+
+// `String.prototype.anchor` method
+// https://tc39.es/ecma262/#sec-string.prototype.anchor
+$({ target: 'String', proto: true, forced: forcedStringHTMLMethod('anchor') }, {
+  anchor: function anchor(name) {
+    return createHTML(this, 'a', 'name', name);
+  }
+});
+
+
+/***/ }),
+
+/***/ 446:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $ = __webpack_require__(9);
+var aFunction = __webpack_require__(77);
+var toObject = __webpack_require__(37);
+var toLength = __webpack_require__(27);
+var fails = __webpack_require__(10);
+var internalSort = __webpack_require__(447);
+var arrayMethodIsStrict = __webpack_require__(138);
+var FF = __webpack_require__(448);
+var IE_OR_EDGE = __webpack_require__(449);
+var V8 = __webpack_require__(79);
+var WEBKIT = __webpack_require__(450);
+
+var test = [];
+var nativeSort = test.sort;
+
+// IE8-
+var FAILS_ON_UNDEFINED = fails(function () {
+  test.sort(undefined);
+});
+// V8 bug
+var FAILS_ON_NULL = fails(function () {
+  test.sort(null);
+});
+// Old WebKit
+var STRICT_METHOD = arrayMethodIsStrict('sort');
+
+var STABLE_SORT = !fails(function () {
+  // feature detection can be too slow, so check engines versions
+  if (V8) return V8 < 70;
+  if (FF && FF > 3) return;
+  if (IE_OR_EDGE) return true;
+  if (WEBKIT) return WEBKIT < 603;
+
+  var result = '';
+  var code, chr, value, index;
+
+  // generate an array with more 512 elements (Chakra and old V8 fails only in this case)
+  for (code = 65; code < 76; code++) {
+    chr = String.fromCharCode(code);
+
+    switch (code) {
+      case 66: case 69: case 70: case 72: value = 3; break;
+      case 68: case 71: value = 4; break;
+      default: value = 2;
+    }
+
+    for (index = 0; index < 47; index++) {
+      test.push({ k: chr + index, v: value });
+    }
+  }
+
+  test.sort(function (a, b) { return b.v - a.v; });
+
+  for (index = 0; index < test.length; index++) {
+    chr = test[index].k.charAt(0);
+    if (result.charAt(result.length - 1) !== chr) result += chr;
+  }
+
+  return result !== 'DGBEFHACIJK';
+});
+
+var FORCED = FAILS_ON_UNDEFINED || !FAILS_ON_NULL || !STRICT_METHOD || !STABLE_SORT;
+
+var getSortCompare = function (comparefn) {
+  return function (x, y) {
+    if (y === undefined) return -1;
+    if (x === undefined) return 1;
+    if (comparefn !== undefined) return +comparefn(x, y) || 0;
+    return String(x) > String(y) ? 1 : -1;
+  };
+};
+
+// `Array.prototype.sort` method
+// https://tc39.es/ecma262/#sec-array.prototype.sort
+$({ target: 'Array', proto: true, forced: FORCED }, {
+  sort: function sort(comparefn) {
+    if (comparefn !== undefined) aFunction(comparefn);
+
+    var array = toObject(this);
+
+    if (STABLE_SORT) return comparefn === undefined ? nativeSort.call(array) : nativeSort.call(array, comparefn);
+
+    var items = [];
+    var arrayLength = toLength(array.length);
+    var itemsLength, index;
+
+    for (index = 0; index < arrayLength; index++) {
+      if (index in array) items.push(array[index]);
+    }
+
+    items = internalSort(items, getSortCompare(comparefn));
+    itemsLength = items.length;
+    index = 0;
+
+    while (index < itemsLength) array[index] = items[index++];
+    while (index < arrayLength) delete array[index++];
+
+    return array;
+  }
+});
+
+
+/***/ }),
+
+/***/ 447:
+/***/ (function(module, exports) {
+
+// TODO: use something more complex like timsort?
+var floor = Math.floor;
+
+var mergeSort = function (array, comparefn) {
+  var length = array.length;
+  var middle = floor(length / 2);
+  return length < 8 ? insertionSort(array, comparefn) : merge(
+    mergeSort(array.slice(0, middle), comparefn),
+    mergeSort(array.slice(middle), comparefn),
+    comparefn
+  );
+};
+
+var insertionSort = function (array, comparefn) {
+  var length = array.length;
+  var i = 1;
+  var element, j;
+
+  while (i < length) {
+    j = i;
+    element = array[i];
+    while (j && comparefn(array[j - 1], element) > 0) {
+      array[j] = array[--j];
+    }
+    if (j !== i++) array[j] = element;
+  } return array;
+};
+
+var merge = function (left, right, comparefn) {
+  var llength = left.length;
+  var rlength = right.length;
+  var lindex = 0;
+  var rindex = 0;
+  var result = [];
+
+  while (lindex < llength || rindex < rlength) {
+    if (lindex < llength && rindex < rlength) {
+      result.push(comparefn(left[lindex], right[rindex]) <= 0 ? left[lindex++] : right[rindex++]);
+    } else {
+      result.push(lindex < llength ? left[lindex++] : right[rindex++]);
+    }
+  } return result;
+};
+
+module.exports = mergeSort;
+
+
+/***/ }),
+
+/***/ 448:
+/***/ (function(module, exports, __webpack_require__) {
+
+var userAgent = __webpack_require__(76);
+
+var firefox = userAgent.match(/firefox\/(\d+)/i);
+
+module.exports = !!firefox && +firefox[1];
+
+
+/***/ }),
+
+/***/ 449:
+/***/ (function(module, exports, __webpack_require__) {
+
+var UA = __webpack_require__(76);
+
+module.exports = /MSIE|Trident/.test(UA);
+
+
+/***/ }),
+
+/***/ 450:
+/***/ (function(module, exports, __webpack_require__) {
+
+var userAgent = __webpack_require__(76);
+
+var webkit = userAgent.match(/AppleWebKit\/(\d+)\./);
+
+module.exports = !!webkit && +webkit[1];
+
+
+/***/ }),
+
+/***/ 451:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StarfieldHero_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(387);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StarfieldHero_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StarfieldHero_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+
+
+/***/ }),
+
+/***/ 452:
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(31);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.i, "canvas{\n  position:absolute;\n  top:0;\n  right:0;\n  bottom:0;\n  left:0;\n  pointer-events:none;\n  -webkit-user-select:none;\n     -moz-user-select:none;\n      -ms-user-select:none;\n          user-select:none\n}", ""]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {};
+module.exports = ___CSS_LOADER_EXPORT___;
+
+
+/***/ }),
+
+/***/ 453:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StarfieldHero_vue_vue_type_style_index_1_id_bc3dd708_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(388);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StarfieldHero_vue_vue_type_style_index_1_id_bc3dd708_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StarfieldHero_vue_vue_type_style_index_1_id_bc3dd708_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+
+
+/***/ }),
+
+/***/ 454:
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(31);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.i, "#toggle-animation[data-v-bc3dd708]{\n  background-color:rgba(6,27,45,.6);\n  min-width:0;\n  border:none;\n  color:#8c9aa2;\n  z-index:2\n}\n#toggle-animation[data-v-bc3dd708]:hover{\n  --tw-text-opacity:1;\n  color:rgba(107, 196, 206, var(--tw-text-opacity))\n}\n.view-more[data-v-bc3dd708]{\n  z-index:2\n}\n.hero-container[data-v-bc3dd708]{\n  margin-top:23vh;\n  z-index:2\n}\n.hero-container h2[data-v-bc3dd708]{\n  font-size:1.375rem;\n  font-weight:200;\n  font-family:\"inter\",sans-serif;\n  line-height:2rem\n}\n@media (max-width:768px){\n.hero-container[data-v-bc3dd708]{\n    margin-top:15vh\n}\n}\n@media (max-width:640px){\n.hero-container h2[data-v-bc3dd708]{\n    font-size:1.1625rem;\n    line-height:1.6rem\n}\n.hero-container[data-v-bc3dd708]{\n    margin-top:5vh;\n    padding:0 10%\n}\n}\n@media (max-width:420px){\n#stars[data-v-bc3dd708]{\n    min-height:44rem\n}\n}", ""]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {};
+module.exports = ___CSS_LOADER_EXPORT___;
+
+
+/***/ })
+
+}]);Àº

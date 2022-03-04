@@ -1,0 +1,1514 @@
+
+≠ê£ê.
+         *
+         * @readonly
+         * @member {BaseTexture}
+         */
+        _this.baseTexture = null;
+
+        _this.setProperties(properties);
+
+        /**
+         * The tint applied to the container.
+         * This is a hex value. A value of 0xFFFFFF will remove any tint effect.
+         *
+         * @private
+         * @member {number}
+         * @default 0xFFFFFF
+         */
+        _this._tint = 0;
+        _this.tintRgb = new Float32Array(4);
+        _this.tint = 0xFFFFFF;
+        return _this;
+    }
+
+    /**
+     * Sets the private properties array to dynamic / static based on the passed properties object
+     *
+     * @param {object} properties - The properties to be uploaded
+     */
+
+
+    ParticleContainer.prototype.setProperties = function setProperties(properties) {
+        if (properties) {
+            this._properties[0] = 'vertices' in properties || 'scale' in properties ? !!properties.vertices || !!properties.scale : this._properties[0];
+            this._properties[1] = 'position' in properties ? !!properties.position : this._properties[1];
+            this._properties[2] = 'rotation' in properties ? !!properties.rotation : this._properties[2];
+            this._properties[3] = 'uvs' in properties ? !!properties.uvs : this._properties[3];
+            this._properties[4] = 'tint' in properties || 'alpha' in properties ? !!properties.tint || !!properties.alpha : this._properties[4];
+        }
+    };
+
+    /**
+     * Updates the object transform for rendering
+     *
+     * @private
+     */
+
+
+    ParticleContainer.prototype.updateTransform = function updateTransform() {
+        // TODO don't need to!
+        this.displayObjectUpdateTransform();
+        //  PIXI.Container.prototype.updateTransform.call( this );
+    };
+
+    /**
+     * The tint applied to the container. This is a hex value.
+     * A value of 0xFFFFFF will remove any tint effect.
+     ** IMPORTANT: This is a webGL only feature and will be ignored by the canvas renderer.
+     * @member {number}
+     * @default 0xFFFFFF
+     */
+
+
+    /**
+     * Renders the container using the WebGL renderer
+     *
+     * @private
+     * @param {PIXI.WebGLRenderer} renderer - The webgl renderer
+     */
+    ParticleContainer.prototype.renderWebGL = function renderWebGL(renderer) {
+        var _this2 = this;
+
+        if (!this.visible || this.worldAlpha <= 0 || !this.children.length || !this.renderable) {
+            return;
+        }
+
+        if (!this.baseTexture) {
+            this.baseTexture = this.children[0]._texture.baseTexture;
+            if (!this.baseTexture.hasLoaded) {
+                this.baseTexture.once('update', function () {
+                    return _this2.onChildrenChange(0);
+                });
+            }
+        }
+
+        renderer.setObjectRenderer(renderer.plugins.particle);
+        renderer.plugins.particle.render(this);
+    };
+
+    /**
+     * Set the flag that static data should be updated to true
+     *
+     * @private
+     * @param {number} smallestChildIndex - The smallest child index
+     */
+
+
+    ParticleContainer.prototype.onChildrenChange = function onChildrenChange(smallestChildIndex) {
+        var bufferIndex = Math.floor(smallestChildIndex / this._batchSize);
+
+        while (this._bufferUpdateIDs.length < bufferIndex) {
+            this._bufferUpdateIDs.push(0);
+        }
+        this._bufferUpdateIDs[bufferIndex] = ++this._updateID;
+    };
+
+    /**
+     * Renders the object using the Canvas renderer
+     *
+     * @private
+     * @param {PIXI.CanvasRenderer} renderer - The canvas renderer
+     */
+
+
+    ParticleContainer.prototype.renderCanvas = function renderCanvas(renderer) {
+        if (!this.visible || this.worldAlpha <= 0 || !this.children.length || !this.renderable) {
+            return;
+        }
+
+        var context = renderer.context;
+        var transform = this.worldTransform;
+        var isRotated = true;
+
+        var positionX = 0;
+        var positionY = 0;
+
+        var finalWidth = 0;
+        var finalHeight = 0;
+
+        renderer.setBlendMode(this.blendMode);
+
+        context.globalAlpha = this.worldAlpha;
+
+        this.displayObjectUpdateTransform();
+
+        for (var i = 0; i < this.children.length; ++i) {
+            var child = this.children[i];
+
+            if (!child.visible) {
+                continue;
+            }
+
+            var frame = child._texture.frame;
+
+            context.globalAlpha = this.worldAlpha * child.alpha;
+
+            if (child.rotation % (Math.PI * 2) === 0) {
+                // this is the fastest  way to optimise! - if rotation is 0 then we can avoid any kind of setTransform call
+                if (isRotated) {
+                    context.setTransform(transform.a, transform.b, transform.c, transform.d, transform.tx * renderer.resolution, transform.ty * renderer.resolution);
+
+                    isRotated = false;
+                }
+
+                positionX = child.anchor.x * (-frame.width * child.scale.x) + child.position.x + 0.5;
+                positionY = child.anchor.y * (-frame.height * child.scale.y) + child.position.y + 0.5;
+
+                finalWidth = frame.width * child.scale.x;
+                finalHeight = frame.height * child.scale.y;
+            } else {
+                if (!isRotated) {
+                    isRotated = true;
+                }
+
+                child.displayObjectUpdateTransform();
+
+                var childTransform = child.worldTransform;
+
+                if (renderer.roundPixels) {
+                    context.setTransform(childTransform.a, childTransform.b, childTransform.c, childTransform.d, childTransform.tx * renderer.resolution | 0, childTransform.ty * renderer.resolution | 0);
+                } else {
+                    context.setTransform(childTransform.a, childTransform.b, childTransform.c, childTransform.d, childTransform.tx * renderer.resolution, childTransform.ty * renderer.resolution);
+                }
+
+                positionX = child.anchor.x * -frame.width + 0.5;
+                positionY = child.anchor.y * -frame.height + 0.5;
+
+                finalWidth = frame.width;
+                finalHeight = frame.height;
+            }
+
+            var resolution = child._texture.baseTexture.resolution;
+
+            context.drawImage(child._texture.baseTexture.source, frame.x * resolution, frame.y * resolution, frame.width * resolution, frame.height * resolution, positionX * renderer.resolution, positionY * renderer.resolution, finalWidth * renderer.resolution, finalHeight * renderer.resolution);
+        }
+    };
+
+    /**
+     * Destroys the container
+     *
+     * @param {object|boolean} [options] - Options parameter. A boolean will act as if all options
+     *  have been set to that value
+     * @param {boolean} [options.children=false] - if set to true, all the children will have their
+     *  destroy method called as well. 'options' will be passed on to those calls.
+     * @param {boolean} [options.texture=false] - Only used for child Sprites if options.children is set to true
+     *  Should it destroy the texture of the child sprite
+     * @param {boolean} [options.baseTexture=false] - Only used for child Sprites if options.children is set to true
+     *  Should it destroy the base texture of the child sprite
+     */
+
+
+    ParticleContainer.prototype.destroy = function destroy(options) {
+        _core$Container.prototype.destroy.call(this, options);
+
+        if (this._buffers) {
+            for (var i = 0; i < this._buffers.length; ++i) {
+                this._buffers[i].destroy();
+            }
+        }
+
+        this._properties = null;
+        this._buffers = null;
+        this._bufferUpdateIDs = null;
+    };
+
+    _createClass(ParticleContainer, [{
+        key: 'tint',
+        get: function get() {
+            return this._tint;
+        },
+        set: function set(value) // eslint-disable-line require-jsdoc
+        {
+            this._tint = value;
+            (0, _utils.hex2rgb)(value, this.tintRgb);
+        }
+    }]);
+
+    return ParticleContainer;
+}(core.Container);
+
+exports.default = ParticleContainer;
+//# sourceMappingURL=ParticleContainer.js.map
+
+/***/ }),
+/* 561 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _core = __webpack_require__(341);
+
+var core = _interopRequireWildcard(_core);
+
+var _ParticleShader = __webpack_require__(562);
+
+var _ParticleShader2 = _interopRequireDefault(_ParticleShader);
+
+var _ParticleBuffer = __webpack_require__(563);
+
+var _ParticleBuffer2 = _interopRequireDefault(_ParticleBuffer);
+
+var _utils = __webpack_require__(342);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * @author Mat Groves
+ *
+ * Big thanks to the very clever Matt DesLauriers <mattdesl> https://github.com/mattdesl/
+ * for creating the original PixiJS version!
+ * Also a thanks to https://github.com/bchevalier for tweaking the tint and alpha so that they now
+ * share 4 bytes on the vertex buffer
+ *
+ * Heavily inspired by LibGDX's ParticleRenderer:
+ * https://github.com/libgdx/libgdx/blob/master/gdx/src/com/badlogic/gdx/graphics/g2d/ParticleRenderer.java
+ */
+
+/**
+ *
+ * @class
+ * @private
+ * @memberof PIXI
+ */
+var ParticleRenderer = function (_core$ObjectRenderer) {
+    _inherits(ParticleRenderer, _core$ObjectRenderer);
+
+    /**
+     * @param {PIXI.WebGLRenderer} renderer - The renderer this sprite batch works for.
+     */
+    function ParticleRenderer(renderer) {
+        _classCallCheck(this, ParticleRenderer);
+
+        // 65535 is max vertex index in the index buffer (see ParticleRenderer)
+        // so max number of particles is 65536 / 4 = 16384
+        // and max number of element in the index buffer is 16384 * 6 = 98304
+        // Creating a full index buffer, overhead is 98304 * 2 = 196Ko
+        // let numIndices = 98304;
+
+        /**
+         * The default shader that is used if a sprite doesn't have a more specific one.
+         *
+         * @member {PIXI.Shader}
+         */
+        var _this = _possibleConstructorReturn(this, _core$ObjectRenderer.call(this, renderer));
+
+        _this.shader = null;
+
+        _this.indexBuffer = null;
+
+        _this.properties = null;
+
+        _this.tempMatrix = new core.Matrix();
+
+        _this.CONTEXT_UID = 0;
+        return _this;
+    }
+
+    /**
+     * When there is a WebGL context change
+     *
+     * @private
+     */
+
+
+    ParticleRenderer.prototype.onContextChange = function onContextChange() {
+        var gl = this.renderer.gl;
+
+        this.CONTEXT_UID = this.renderer.CONTEXT_UID;
+
+        // setup default shader
+        this.shader = new _ParticleShader2.default(gl);
+
+        this.properties = [
+        // verticesData
+        {
+            attribute: this.shader.attributes.aVertexPosition,
+            size: 2,
+            uploadFunction: this.uploadVertices,
+            offset: 0
+        },
+        // positionData
+        {
+            attribute: this.shader.attributes.aPositionCoord,
+            size: 2,
+            uploadFunction: this.uploadPosition,
+            offset: 0
+        },
+        // rotationData
+        {
+            attribute: this.shader.attributes.aRotation,
+            size: 1,
+            uploadFunction: this.uploadRotation,
+            offset: 0
+        },
+        // uvsData
+        {
+            attribute: this.shader.attributes.aTextureCoord,
+            size: 2,
+            uploadFunction: this.uploadUvs,
+            offset: 0
+        },
+        // tintData
+        {
+            attribute: this.shader.attributes.aColor,
+            size: 1,
+            unsignedByte: true,
+            uploadFunction: this.uploadTint,
+            offset: 0
+        }];
+    };
+
+    /**
+     * Starts a new particle batch.
+     *
+     */
+
+
+    ParticleRenderer.prototype.start = function start() {
+        this.renderer.bindShader(this.shader);
+    };
+
+    /**
+     * Renders the particle container object.
+     *
+     * @param {PIXI.ParticleContainer} container - The container to render using this ParticleRenderer
+     */
+
+
+    ParticleRenderer.prototype.render = function render(container) {
+        var children = container.children;
+        var maxSize = container._maxSize;
+        var batchSize = container._batchSize;
+        var renderer = this.renderer;
+        var totalChildren = children.length;
+
+        if (totalChildren === 0) {
+            return;
+        } else if (totalChildren > maxSize) {
+            totalChildren = maxSize;
+        }
+
+        var buffers = container._glBuffers[renderer.CONTEXT_UID];
+
+        if (!buffers) {
+            buffers = container._glBuffers[renderer.CONTEXT_UID] = this.generateBuffers(container);
+        }
+
+        var baseTexture = children[0]._texture.baseTexture;
+
+        // if the uvs have not updated then no point rendering just yet!
+        this.renderer.setBlendMode(core.utils.correctBlendMode(container.blendMode, baseTexture.premultipliedAlpha));
+
+        var gl = renderer.gl;
+
+        var m = container.worldTransform.copy(this.tempMatrix);
+
+        m.prepend(renderer._activeRenderTarget.projectionMatrix);
+
+        this.shader.uniforms.projectionMatrix = m.toArray(true);
+
+        this.shader.uniforms.uColor = core.utils.premultiplyRgba(container.tintRgb, container.worldAlpha, this.shader.uniforms.uColor, baseTexture.premultipliedAlpha);
+
+        // make sure the texture is bound..
+        this.shader.uniforms.uSampler = renderer.bindTexture(baseTexture);
+
+        var updateStatic = false;
+
+        // now lets upload and render the buffers..
+        for (var i = 0, j = 0; i < totalChildren; i += batchSize, j += 1) {
+            var amount = totalChildren - i;
+
+            if (amount > batchSize) {
+                amount = batchSize;
+            }
+
+            if (j >= buffers.length) {
+                if (!container.autoResize) {
+                    break;
+                }
+                buffers.push(this._generateOneMoreBuffer(container));
+            }
+
+            var buffer = buffers[j];
+
+            // we always upload the dynamic
+            buffer.uploadDynamic(children, i, amount);
+
+            var bid = container._bufferUpdateIDs[j] || 0;
+
+            updateStatic = updateStatic || buffer._updateID < bid;
+            // we only upload the static content when we have to!
+            if (updateStatic) {
+                buffer._updateID = container._updateID;
+                buffer.uploadStatic(children, i, amount);
+            }
+
+            // bind the buffer
+            renderer.bindVao(buffer.vao);
+            buffer.vao.draw(gl.TRIANGLES, amount * 6);
+        }
+    };
+
+    /**
+     * Creates one particle buffer for each child in the container we want to render and updates internal properties
+     *
+     * @param {PIXI.ParticleContainer} container - The container to render using this ParticleRenderer
+     * @return {PIXI.ParticleBuffer[]} The buffers
+     */
+
+
+    ParticleRenderer.prototype.generateBuffers = function generateBuffers(container) {
+        var gl = this.renderer.gl;
+        var buffers = [];
+        var size = container._maxSize;
+        var batchSize = container._batchSize;
+        var dynamicPropertyFlags = container._properties;
+
+        for (var i = 0; i < size; i += batchSize) {
+            buffers.push(new _ParticleBuffer2.default(gl, this.properties, dynamicPropertyFlags, batchSize));
+        }
+
+        return buffers;
+    };
+
+    /**
+     * Creates one more particle buffer, because container has autoResize feature
+     *
+     * @param {PIXI.ParticleContainer} container - The container to render using this ParticleRenderer
+     * @return {PIXI.ParticleBuffer} generated buffer
+     * @private
+     */
+
+
+    ParticleRenderer.prototype._generateOneMoreBuffer = function _generateOneMoreBuffer(container) {
+        var gl = this.renderer.gl;
+        var batchSize = container._batchSize;
+        var dynamicPropertyFlags = container._properties;
+
+        return new _ParticleBuffer2.default(gl, this.properties, dynamicPropertyFlags, batchSize);
+    };
+
+    /**
+     * Uploads the verticies.
+     *
+     * @param {PIXI.DisplayObject[]} children - the array of display objects to render
+     * @param {number} startIndex - the index to start from in the children array
+     * @param {number} amount - the amount of children that will have their vertices uploaded
+     * @param {number[]} array - The vertices to upload.
+     * @param {number} stride - Stride to use for iteration.
+     * @param {number} offset - Offset to start at.
+     */
+
+
+    ParticleRenderer.prototype.uploadVertices = function uploadVertices(children, startIndex, amount, array, stride, offset) {
+        var w0 = 0;
+        var w1 = 0;
+        var h0 = 0;
+        var h1 = 0;
+
+        for (var i = 0; i < amount; ++i) {
+            var sprite = children[startIndex + i];
+            var texture = sprite._texture;
+            var sx = sprite.scale.x;
+            var sy = sprite.scale.y;
+            var trim = texture.trim;
+            var orig = texture.orig;
+
+            if (trim) {
+                // if the sprite is trimmed and is not a tilingsprite then we need to add the
+                // extra space before transforming the sprite coords..
+                w1 = trim.x - sprite.anchor.x * orig.width;
+                w0 = w1 + trim.width;
+
+                h1 = trim.y - sprite.anchor.y * orig.height;
+                h0 = h1 + trim.height;
+            } else {
+                w0 = orig.width * (1 - sprite.anchor.x);
+                w1 = orig.width * -sprite.anchor.x;
+
+                h0 = orig.height * (1 - sprite.anchor.y);
+                h1 = orig.height * -sprite.anchor.y;
+            }
+
+            array[offset] = w1 * sx;
+            array[offset + 1] = h1 * sy;
+
+            array[offset + stride] = w0 * sx;
+            array[offset + stride + 1] = h1 * sy;
+
+            array[offset + stride * 2] = w0 * sx;
+            array[offset + stride * 2 + 1] = h0 * sy;
+
+            array[offset + stride * 3] = w1 * sx;
+            array[offset + stride * 3 + 1] = h0 * sy;
+
+            offset += stride * 4;
+        }
+    };
+
+    /**
+     *
+     * @param {PIXI.DisplayObject[]} children - the array of display objects to render
+     * @param {number} startIndex - the index to start from in the children array
+     * @param {number} amount - the amount of children that will have their positions uploaded
+     * @param {number[]} array - The vertices to upload.
+     * @param {number} stride - Stride to use for iteration.
+     * @param {number} offset - Offset to start at.
+     */
+
+
+    ParticleRenderer.prototype.uploadPosition = function uploadPosition(children, startIndex, amount, array, stride, offset) {
+        for (var i = 0; i < amount; i++) {
+            var spritePosition = children[startIndex + i].position;
+
+            array[offset] = spritePosition.x;
+            array[offset + 1] = spritePosition.y;
+
+            array[offset + stride] = spritePosition.x;
+            array[offset + stride + 1] = spritePosition.y;
+
+            array[offset + stride * 2] = spritePosition.x;
+            array[offset + stride * 2 + 1] = spritePosition.y;
+
+            array[offset + stride * 3] = spritePosition.x;
+            array[offset + stride * 3 + 1] = spritePosition.y;
+
+            offset += stride * 4;
+        }
+    };
+
+    /**
+     *
+     * @param {PIXI.DisplayObject[]} children - the array of display objects to render
+     * @param {number} startIndex - the index to start from in the children array
+     * @param {number} amount - the amount of children that will have their rotation uploaded
+     * @param {number[]} array - The vertices to upload.
+     * @param {number} stride - Stride to use for iteration.
+     * @param {number} offset - Offset to start at.
+     */
+
+
+    ParticleRenderer.prototype.uploadRotation = function uploadRotation(children, startIndex, amount, array, stride, offset) {
+        for (var i = 0; i < amount; i++) {
+            var spriteRotation = children[startIndex + i].rotation;
+
+            array[offset] = spriteRotation;
+            array[offset + stride] = spriteRotation;
+            array[offset + stride * 2] = spriteRotation;
+            array[offset + stride * 3] = spriteRotation;
+
+            offset += stride * 4;
+        }
+    };
+
+    /**
+     *
+     * @param {PIXI.DisplayObject[]} children - the array of display objects to render
+     * @param {number} startIndex - the index to start from in the children array
+     * @param {number} amount - the amount of children that will have their rotation uploaded
+     * @param {number[]} array - The vertices to upload.
+     * @param {number} stride - Stride to use for iteration.
+     * @param {number} offset - Offset to start at.
+     */
+
+
+    ParticleRenderer.prototype.uploadUvs = function uploadUvs(children, startIndex, amount, array, stride, offset) {
+        for (var i = 0; i < amount; ++i) {
+            var textureUvs = children[startIndex + i]._texture._uvs;
+
+            if (textureUvs) {
+                array[offset] = textureUvs.x0;
+                array[offset + 1] = textureUvs.y0;
+
+                array[offset + stride] = textureUvs.x1;
+                array[offset + stride + 1] = textureUvs.y1;
+
+                array[offset + stride * 2] = textureUvs.x2;
+                array[offset + stride * 2 + 1] = textureUvs.y2;
+
+                array[offset + stride * 3] = textureUvs.x3;
+                array[offset + stride * 3 + 1] = textureUvs.y3;
+
+                offset += stride * 4;
+            } else {
+                // TODO you know this can be easier!
+                array[offset] = 0;
+                array[offset + 1] = 0;
+
+                array[offset + stride] = 0;
+                array[offset + stride + 1] = 0;
+
+                array[offset + stride * 2] = 0;
+                array[offset + stride * 2 + 1] = 0;
+
+                array[offset + stride * 3] = 0;
+                array[offset + stride * 3 + 1] = 0;
+
+                offset += stride * 4;
+            }
+        }
+    };
+
+    /**
+     *
+     * @param {PIXI.DisplayObject[]} children - the array of display objects to render
+     * @param {number} startIndex - the index to start from in the children array
+     * @param {number} amount - the amount of children that will have their rotation uploaded
+     * @param {number[]} array - The vertices to upload.
+     * @param {number} stride - Stride to use for iteration.
+     * @param {number} offset - Offset to start at.
+     */
+
+
+    ParticleRenderer.prototype.uploadTint = function uploadTint(children, startIndex, amount, array, stride, offset) {
+        for (var i = 0; i < amount; ++i) {
+            var sprite = children[startIndex + i];
+            var premultiplied = sprite._texture.baseTexture.premultipliedAlpha;
+            var alpha = sprite.alpha;
+            // we dont call extra function if alpha is 1.0, that's faster
+            var argb = alpha < 1.0 && premultiplied ? (0, _utils.premultiplyTint)(sprite._tintRGB, alpha) : sprite._tintRGB + (alpha * 255 << 24);
+
+            array[offset] = argb;
+            array[offset + stride] = argb;
+            array[offset + stride * 2] = argb;
+            array[offset + stride * 3] = argb;
+
+            offset += stride * 4;
+        }
+    };
+
+    /**
+     * Destroys the ParticleRenderer.
+     *
+     */
+
+
+    ParticleRenderer.prototype.destroy = function destroy() {
+        if (this.renderer.gl) {
+            this.renderer.gl.deleteBuffer(this.indexBuffer);
+        }
+
+        _core$ObjectRenderer.prototype.destroy.call(this);
+
+        this.shader.destroy();
+
+        this.indices = null;
+        this.tempMatrix = null;
+    };
+
+    return ParticleRenderer;
+}(core.ObjectRenderer);
+
+exports.default = ParticleRenderer;
+
+
+core.WebGLRenderer.registerPlugin('particle', ParticleRenderer);
+//# sourceMappingURL=ParticleRenderer.js.map
+
+/***/ }),
+/* 562 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _Shader2 = __webpack_require__(358);
+
+var _Shader3 = _interopRequireDefault(_Shader2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * @class
+ * @extends PIXI.Shader
+ * @memberof PIXI
+ */
+var ParticleShader = function (_Shader) {
+    _inherits(ParticleShader, _Shader);
+
+    /**
+     * @param {PIXI.Shader} gl - The webgl shader manager this shader works for.
+     */
+    function ParticleShader(gl) {
+        _classCallCheck(this, ParticleShader);
+
+        return _possibleConstructorReturn(this, _Shader.call(this, gl,
+        // vertex shader
+        ['attribute vec2 aVertexPosition;', 'attribute vec2 aTextureCoord;', 'attribute vec4 aColor;', 'attribute vec2 aPositionCoord;', 'attribute float aRotation;', 'uniform mat3 projectionMatrix;', 'uniform vec4 uColor;', 'varying vec2 vTextureCoord;', 'varying vec4 vColor;', 'void main(void){', '   float x = (aVertexPosition.x) * cos(aRotation) - (aVertexPosition.y) * sin(aRotation);', '   float y = (aVertexPosition.x) * sin(aRotation) + (aVertexPosition.y) * cos(aRotation);', '   vec2 v = vec2(x, y);', '   v = v + aPositionCoord;', '   gl_Position = vec4((projectionMatrix * vec3(v, 1.0)).xy, 0.0, 1.0);', '   vTextureCoord = aTextureCoord;', '   vColor = aColor * uColor;', '}'].join('\n'),
+        // hello
+        ['varying vec2 vTextureCoord;', 'varying vec4 vColor;', 'uniform sampler2D uSampler;', 'void main(void){', '  vec4 color = texture2D(uSampler, vTextureCoord) * vColor;', '  gl_FragColor = color;', '}'].join('\n')));
+    }
+
+    return ParticleShader;
+}(_Shader3.default);
+
+exports.default = ParticleShader;
+//# sourceMappingURL=ParticleShader.js.map
+
+/***/ }),
+/* 563 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _pixiGlCore = __webpack_require__(347);
+
+var _pixiGlCore2 = _interopRequireDefault(_pixiGlCore);
+
+var _createIndicesForQuads = __webpack_require__(382);
+
+var _createIndicesForQuads2 = _interopRequireDefault(_createIndicesForQuads);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * @author Mat Groves
+ *
+ * Big thanks to the very clever Matt DesLauriers <mattdesl> https://github.com/mattdesl/
+ * for creating the original PixiJS version!
+ * Also a thanks to https://github.com/bchevalier for tweaking the tint and alpha so that
+ * they now share 4 bytes on the vertex buffer
+ *
+ * Heavily inspired by LibGDX's ParticleBuffer:
+ * https://github.com/libgdx/libgdx/blob/master/gdx/src/com/badlogic/gdx/graphics/g2d/ParticleBuffer.java
+ */
+
+/**
+ * The particle buffer manages the static and dynamic buffers for a particle container.
+ *
+ * @class
+ * @private
+ * @memberof PIXI
+ */
+var ParticleBuffer = function () {
+    /**
+     * @param {WebGLRenderingContext} gl - The rendering context.
+     * @param {object} properties - The properties to upload.
+     * @param {boolean[]} dynamicPropertyFlags - Flags for which properties are dynamic.
+     * @param {number} size - The size of the batch.
+     */
+    function ParticleBuffer(gl, properties, dynamicPropertyFlags, size) {
+        _classCallCheck(this, ParticleBuffer);
+
+        /**
+         * The current WebGL drawing context.
+         *
+         * @member {WebGLRenderingContext}
+         */
+        this.gl = gl;
+
+        /**
+         * The number of particles the buffer can hold
+         *
+         * @member {number}
+         */
+        this.size = size;
+
+        /**
+         * A list of the properties that are dynamic.
+         *
+         * @member {object[]}
+         */
+        this.dynamicProperties = [];
+
+        /**
+         * A list of the properties that are static.
+         *
+         * @member {object[]}
+         */
+        this.staticProperties = [];
+
+        for (var i = 0; i < properties.length; ++i) {
+            var property = properties[i];
+
+            // Make copy of properties object so that when we edit the offset it doesn't
+            // change all other instances of the object literal
+            property = {
+                attribute: property.attribute,
+                size: property.size,
+                uploadFunction: property.uploadFunction,
+                unsignedByte: property.unsignedByte,
+                offset: property.offset
+            };
+
+            if (dynamicPropertyFlags[i]) {
+                this.dynamicProperties.push(property);
+            } else {
+                this.staticProperties.push(property);
+            }
+        }
+
+        this.staticStride = 0;
+        this.staticBuffer = null;
+        this.staticData = null;
+        this.staticDataUint32 = null;
+
+        this.dynamicStride = 0;
+        this.dynamicBuffer = null;
+        this.dynamicData = null;
+        this.dynamicDataUint32 = null;
+
+        this._updateID = 0;
+
+        this.initBuffers();
+    }
+
+    /**
+     * Sets up the renderer context and necessary buffers.
+     *
+     * @private
+     */
+
+
+    ParticleBuffer.prototype.initBuffers = function initBuffers() {
+        var gl = this.gl;
+        var dynamicOffset = 0;
+
+        /**
+         * Holds the indices of the geometry (quads) to draw
+         *
+         * @member {Uint16Array}
+         */
+        this.indices = (0, _createIndicesForQuads2.default)(this.size);
+        this.indexBuffer = _pixiGlCore2.default.GLBuffer.createIndexBuffer(gl, this.indices, gl.STATIC_DRAW);
+
+        this.dynamicStride = 0;
+
+        for (var i = 0; i < this.dynamicProperties.length; ++i) {
+            var property = this.dynamicProperties[i];
+
+            property.offset = dynamicOffset;
+            dynamicOffset += property.size;
+            this.dynamicStride += property.size;
+        }
+
+        var dynBuffer = new ArrayBuffer(this.size * this.dynamicStride * 4 * 4);
+
+        this.dynamicData = new Float32Array(dynBuffer);
+        this.dynamicDataUint32 = new Uint32Array(dynBuffer);
+        this.dynamicBuffer = _pixiGlCore2.default.GLBuffer.createVertexBuffer(gl, dynBuffer, gl.STREAM_DRAW);
+
+        // static //
+        var staticOffset = 0;
+
+        this.staticStride = 0;
+
+        for (var _i = 0; _i < this.staticProperties.length; ++_i) {
+            var _property = this.staticProperties[_i];
+
+            _property.offset = staticOffset;
+            staticOffset += _property.size;
+            this.staticStride += _property.size;
+        }
+
+        var statBuffer = new ArrayBuffer(this.size * this.staticStride * 4 * 4);
+
+        this.staticData = new Float32Array(statBuffer);
+        this.staticDataUint32 = new Uint32Array(statBuffer);
+        this.staticBuffer = _pixiGlCore2.default.GLBuffer.createVertexBuffer(gl, statBuffer, gl.STATIC_DRAW);
+
+        this.vao = new _pixiGlCore2.default.VertexArrayObject(gl).addIndex(this.indexBuffer);
+
+        for (var _i2 = 0; _i2 < this.dynamicProperties.length; ++_i2) {
+            var _property2 = this.dynamicProperties[_i2];
+
+            if (_property2.unsignedByte) {
+                this.vao.addAttribute(this.dynamicBuffer, _property2.attribute, gl.UNSIGNED_BYTE, true, this.dynamicStride * 4, _property2.offset * 4);
+            } else {
+                this.vao.addAttribute(this.dynamicBuffer, _property2.attribute, gl.FLOAT, false, this.dynamicStride * 4, _property2.offset * 4);
+            }
+        }
+
+        for (var _i3 = 0; _i3 < this.staticProperties.length; ++_i3) {
+            var _property3 = this.staticProperties[_i3];
+
+            if (_property3.unsignedByte) {
+                this.vao.addAttribute(this.staticBuffer, _property3.attribute, gl.UNSIGNED_BYTE, true, this.staticStride * 4, _property3.offset * 4);
+            } else {
+                this.vao.addAttribute(this.staticBuffer, _property3.attribute, gl.FLOAT, false, this.staticStride * 4, _property3.offset * 4);
+            }
+        }
+    };
+
+    /**
+     * Uploads the dynamic properties.
+     *
+     * @param {PIXI.DisplayObject[]} children - The children to upload.
+     * @param {number} startIndex - The index to start at.
+     * @param {number} amount - The number to upload.
+     */
+
+
+    ParticleBuffer.prototype.uploadDynamic = function uploadDynamic(children, startIndex, amount) {
+        for (var i = 0; i < this.dynamicProperties.length; i++) {
+            var property = this.dynamicProperties[i];
+
+            property.uploadFunction(children, startIndex, amount, property.unsignedByte ? this.dynamicDataUint32 : this.dynamicData, this.dynamicStride, property.offset);
+        }
+
+        this.dynamicBuffer.upload();
+    };
+
+    /**
+     * Uploads the static properties.
+     *
+     * @param {PIXI.DisplayObject[]} children - The children to upload.
+     * @param {number} startIndex - The index to start at.
+     * @param {number} amount - The number to upload.
+     */
+
+
+    ParticleBuffer.prototype.uploadStatic = function uploadStatic(children, startIndex, amount) {
+        for (var i = 0; i < this.staticProperties.length; i++) {
+            var property = this.staticProperties[i];
+
+            property.uploadFunction(children, startIndex, amount, property.unsignedByte ? this.staticDataUint32 : this.staticData, this.staticStride, property.offset);
+        }
+
+        this.staticBuffer.upload();
+    };
+
+    /**
+     * Destroys the ParticleBuffer.
+     *
+     */
+
+
+    ParticleBuffer.prototype.destroy = function destroy() {
+        this.dynamicProperties = null;
+        this.dynamicBuffer.destroy();
+        this.dynamicBuffer = null;
+        this.dynamicData = null;
+        this.dynamicDataUint32 = null;
+
+        this.staticProperties = null;
+        this.staticBuffer.destroy();
+        this.staticBuffer = null;
+        this.staticData = null;
+        this.staticDataUint32 = null;
+    };
+
+    return ParticleBuffer;
+}();
+
+exports.default = ParticleBuffer;
+//# sourceMappingURL=ParticleBuffer.js.map
+
+/***/ }),
+/* 564 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _WebGLPrepare = __webpack_require__(565);
+
+Object.defineProperty(exports, 'webgl', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_WebGLPrepare).default;
+  }
+});
+
+var _CanvasPrepare = __webpack_require__(566);
+
+Object.defineProperty(exports, 'canvas', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_CanvasPrepare).default;
+  }
+});
+
+var _BasePrepare = __webpack_require__(384);
+
+Object.defineProperty(exports, 'BasePrepare', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_BasePrepare).default;
+  }
+});
+
+var _CountLimiter = __webpack_require__(440);
+
+Object.defineProperty(exports, 'CountLimiter', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_CountLimiter).default;
+  }
+});
+
+var _TimeLimiter = __webpack_require__(567);
+
+Object.defineProperty(exports, 'TimeLimiter', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_TimeLimiter).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+/* 565 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _core = __webpack_require__(341);
+
+var core = _interopRequireWildcard(_core);
+
+var _BasePrepare2 = __webpack_require__(384);
+
+var _BasePrepare3 = _interopRequireDefault(_BasePrepare2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * The prepare manager provides functionality to upload content to the GPU.
+ *
+ * An instance of this class is automatically created by default, and can be found at renderer.plugins.prepare
+ *
+ * @class
+ * @extends PIXI.prepare.BasePrepare
+ * @memberof PIXI.prepare
+ */
+var WebGLPrepare = function (_BasePrepare) {
+    _inherits(WebGLPrepare, _BasePrepare);
+
+    /**
+     * @param {PIXI.WebGLRenderer} renderer - A reference to the current renderer
+     */
+    function WebGLPrepare(renderer) {
+        _classCallCheck(this, WebGLPrepare);
+
+        var _this = _possibleConstructorReturn(this, _BasePrepare.call(this, renderer));
+
+        _this.uploadHookHelper = _this.renderer;
+
+        // Add textures and graphics to upload
+        _this.registerFindHook(findGraphics);
+        _this.registerUploadHook(uploadBaseTextures);
+        _this.registerUploadHook(uploadGraphics);
+        return _this;
+    }
+
+    return WebGLPrepare;
+}(_BasePrepare3.default);
+/**
+ * Built-in hook to upload PIXI.Texture objects to the GPU.
+ *
+ * @private
+ * @param {PIXI.WebGLRenderer} renderer - instance of the webgl renderer
+ * @param {PIXI.DisplayObject} item - Item to check
+ * @return {boolean} If item was uploaded.
+ */
+
+
+exports.default = WebGLPrepare;
+function uploadBaseTextures(renderer, item) {
+    if (item instanceof core.BaseTexture) {
+        // if the texture already has a GL texture, then the texture has been prepared or rendered
+        // before now. If the texture changed, then the changer should be calling texture.update() which
+        // reuploads the texture without need for preparing it again
+        if (!item._glTextures[renderer.CONTEXT_UID]) {
+            renderer.textureManager.updateTexture(item);
+        }
+
+        return true;
+    }
+
+    return false;
+}
+
+/**
+ * Built-in hook to upload PIXI.Graphics to the GPU.
+ *
+ * @private
+ * @param {PIXI.WebGLRenderer} renderer - instance of the webgl renderer
+ * @param {PIXI.DisplayObject} item - Item to check
+ * @return {boolean} If item was uploaded.
+ */
+function uploadGraphics(renderer, item) {
+    if (item instanceof core.Graphics) {
+        // if the item is not dirty and already has webgl data, then it got prepared or rendered
+        // before now and we shouldn't waste time updating it again
+        if (item.dirty || item.clearDirty || !item._webGL[renderer.plugins.graphics.CONTEXT_UID]) {
+            renderer.plugins.graphics.updateGraphics(item);
+        }
+
+        return true;
+    }
+
+    return false;
+}
+
+/**
+ * Built-in hook to find graphics.
+ *
+ * @private
+ * @param {PIXI.DisplayObject} item - Display object to check
+ * @param {Array<*>} queue - Collection of items to upload
+ * @return {boolean} if a PIXI.Graphics object was found.
+ */
+function findGraphics(item, queue) {
+    if (item instanceof core.Graphics) {
+        queue.push(item);
+
+        return true;
+    }
+
+    return false;
+}
+
+core.WebGLRenderer.registerPlugin('prepare', WebGLPrepare);
+//# sourceMappingURL=WebGLPrepare.js.map
+
+/***/ }),
+/* 566 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _core = __webpack_require__(341);
+
+var core = _interopRequireWildcard(_core);
+
+var _BasePrepare2 = __webpack_require__(384);
+
+var _BasePrepare3 = _interopRequireDefault(_BasePrepare2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CANVAS_START_SIZE = 16;
+
+/**
+ * The prepare manager provides functionality to upload content to the GPU
+ * This cannot be done directly for Canvas like in WebGL, but the effect can be achieved by drawing
+ * textures to an offline canvas.
+ * This draw call will force the texture to be moved onto the GPU.
+ *
+ * An instance of this class is automatically created by default, and can be found at renderer.plugins.prepare
+ *
+ * @class
+ * @extends PIXI.prepare.BasePrepare
+ * @memberof PIXI.prepare
+ */
+
+var CanvasPrepare = function (_BasePrepare) {
+    _inherits(CanvasPrepare, _BasePrepare);
+
+    /**
+     * @param {PIXI.CanvasRenderer} renderer - A reference to the current renderer
+     */
+    function CanvasPrepare(renderer) {
+        _classCallCheck(this, CanvasPrepare);
+
+        var _this = _possibleConstructorReturn(this, _BasePrepare.call(this, renderer));
+
+        _this.uploadHookHelper = _this;
+
+        /**
+        * An offline canvas to render textures to
+        * @type {HTMLCanvasElement}
+        * @private
+        */
+        _this.canvas = document.createElement('canvas');
+        _this.canvas.width = CANVAS_START_SIZE;
+        _this.canvas.height = CANVAS_START_SIZE;
+
+        /**
+         * The context to the canvas
+        * @type {CanvasRenderingContext2D}
+        * @private
+        */
+        _this.ctx = _this.canvas.getContext('2d');
+
+        // Add textures to upload
+        _this.registerUploadHook(uploadBaseTextures);
+        return _this;
+    }
+
+    /**
+     * Destroys the plugin, don't use after this.
+     *
+     */
+
+
+    CanvasPrepare.prototype.destroy = function destroy() {
+        _BasePrepare.prototype.destroy.call(this);
+        this.ctx = null;
+        this.canvas = null;
+    };
+
+    return CanvasPrepare;
+}(_BasePrepare3.default);
+
+/**
+ * Built-in hook to upload PIXI.Texture objects to the GPU.
+ *
+ * @private
+ * @param {*} prepare - Instance of CanvasPrepare
+ * @param {*} item - Item to check
+ * @return {boolean} If item was uploaded.
+ */
+
+
+exports.default = CanvasPrepare;
+function uploadBaseTextures(prepare, item) {
+    if (item instanceof core.BaseTexture) {
+        var image = item.source;
+
+        // Sometimes images (like atlas images) report a size of zero, causing errors on windows phone.
+        // So if the width or height is equal to zero then use the canvas size
+        // Otherwise use whatever is smaller, the image dimensions or the canvas dimensions.
+        var imageWidth = image.width === 0 ? prepare.canvas.width : Math.min(prepare.canvas.width, image.width);
+        var imageHeight = image.height === 0 ? prepare.canvas.height : Math.min(prepare.canvas.height, image.height);
+
+        // Only a small subsections is required to be drawn to have the whole texture uploaded to the GPU
+        // A smaller draw can be faster.
+        prepare.ctx.drawImage(image, 0, 0, imageWidth, imageHeight, 0, 0, prepare.canvas.width, prepare.canvas.height);
+
+        return true;
+    }
+
+    return false;
+}
+
+core.CanvasRenderer.registerPlugin('prepare', CanvasPrepare);
+//# sourceMappingURL=CanvasPrepare.js.map
+
+/***/ }),
+/* 567 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * TimeLimiter limits the number of items handled by a {@link PIXI.BasePrepare} to a specified
+ * number of milliseconds per frame.
+ *
+ * @class
+ * @memberof PIXI
+ */
+var TimeLimiter = function () {
+  /**
+   * @param {number} maxMilliseconds - The maximum milliseconds that can be spent preparing items each frame.
+   */
+  function TimeLimiter(maxMilliseconds) {
+    _classCallCheck(this, TimeLimiter);
+
+    /**
+     * The maximum milliseconds that can be spent preparing items each frame.
+     * @private
+     */
+    this.maxMilliseconds = maxMilliseconds;
+    /**
+     * The start time of the current frame.
+     * @type {number}
+     * @private
+     */
+    this.frameStart = 0;
+  }
+
+  /**
+   * Resets any counting properties to start fresh on a new frame.
+   */
+
+
+  TimeLimiter.prototype.beginFrame = function beginFrame() {
+    this.frameStart = Date.now();
+  };
+
+  /**
+   * Checks to see if another item can be uploaded. This should only be called once per item.
+   * @return {boolean} If the item is allowed to be uploaded.
+   */
+
+
+  TimeLimiter.prototype.allowedToUpload = function allowedToUpload() {
+    return Date.now() - this.frameStart < this.maxMilliseconds;
+  };
+
+  return TimeLimiter;
+}();
+
+exports.default = TimeLimiter;
+//# sourceMappingURL=TimeLimiter.js.map
+
+/***/ }),
+/* 568 */,
+/* 569 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {
+
+exports.__esModule = true;
+exports.loader = exports.prepare = exports.particles = exports.mesh = exports.loaders = exports.interaction = exports.filters = exports.extras = exports.extract = exports.accessibility = undefined;
+
+var _polyfill = __webpack_require__(467);
+
+Object.keys(_polyfill).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+        enumerable: true,
+        get: function get() {
+            return _polyfill[key];
+        }
+    });
+});
+
+var _core = __webpack_require__(341);
+
+Object.keys(_core).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+        enumerable: true,
+        get: function get() {
+            return _core[key];
+        }
+    });
+});
+
+var _deprecation = __webpack_require__(528);
+
+var _deprecation2 = _interopRequireDefault(_deprecation);
+
+var _accessibility = __webpack_require__(529);
+
+var accessibility = _interopRequireWildcard(_accessibility);
+
+var _extract = __webpack_require__(531);
+
+var extract = _interopRequireWildcard(_extract);
+
+var _extras = __webpack_require__(422);
+
+var extras = _interopRequireWildcard(_extras);
+
+var _filters = __webpack_require__(541);
+
+var filters = _interopRequireWildcard(_filters);
+
+var _interaction = __webpack_require__(548);
+
+var interaction = _interopRequireWildcard(_interaction);
+
+var _loaders = __webpack_require__(550);
+
+var loaders = _interopRequireWildcard(_loaders);
+
+var _mesh = __webpack_require__(554);
+
+var mesh = _interopRequireWildcard(_mesh);
+
+var _particles = __webpack_require__(559);
+
+var particles = _interopRequireWildcard(_particles);
+
+var _prepare = __webpack_require__(564);
+
+var prepare = _interopRequireWildcard(_prepare);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// export core
+_core.utils.mixins.performMixins();
+
+/**
+ * Alias for {@link PIXI.loaders.shared}.
+ * @name loader
+ * @memberof PIXI
+ * @type {PIXI.loader.Loader}
+ */
+
+
+// handle mixins now, after all code has been added, including deprecation
+
+
+// export libs
+// import polyfills. Done as an export to make sure polyfills are imported first
+var loader = loaders.shared || null;
+
+exports.accessibility = accessibility;
+exports.extract = extract;
+exports.extras = extras;
+exports.filters = filters;
+exports.interaction = interaction;
+exports.loaders = loaders;
+exports.mesh = mesh;
+exports.particles = particles;
+exports.prepare = prepare;
+exports.loader = loader;
+
+// Apply the deprecations
+
+if (typeof _deprecation2.default === 'function') {
+    (0, _deprecation2.default)(exports);
+}
+
+// Always export PixiJS globally.
+global.PIXI = exports; // eslint-disable-line
+//# sourceMappingURL=index.js.map
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(39)))
+
+/***/ })
+])]);£ê
