@@ -1,5 +1,10 @@
 import { Cannon, Tank } from "./blob/index.js";
-import { tankBehavior, cannonBehavior } from "./blob/behavior.js";
+import {
+  tankBehavior,
+  cannonBehavior,
+  playerNameBehavior,
+} from "./blob/behavior.js";
+import { BlobText } from "./chip/index.js";
 
 function fetchAsBitmap(url) {
   return fetch(url)
@@ -72,12 +77,23 @@ async function spawnAt(chip, address, metadata, x, y) {
     .addBehavior(cannonBehavior)
     .addBehavior(behavior.cannon);
 
+  const playerName = new BlobText(
+    "playerName",
+    address.slice(0, 5) + "..." + address.slice(-5),
+    {
+      belongTo: address,
+    }
+  ).addBehavior(playerNameBehavior);
+  playerName.textAlign = "center";
+  playerName.fillStyle = chip.address === address ? "red" : "grey";
+
   const tank = new Tank(bitmap.body, {
     metadata,
     health: metadata.health,
     speed: metadata.speed,
     rotateSpeed: metadata.rotateSpeed,
     cannon,
+    playerName,
   })
     .addBehavior(tankBehavior)
     .addBehavior(behavior.tank);
@@ -88,6 +104,7 @@ async function spawnAt(chip, address, metadata, x, y) {
   };
   tank.uuid = address;
 
+  chip.spawn(playerName, tank.x + tank.sprite.width / 2, tank.y - 15);
   chip.spawn(cannon, tank.x, tank.y);
   cannon.origin = {
     x: metadata.cannonOrigin.x,

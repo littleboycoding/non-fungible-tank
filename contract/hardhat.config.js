@@ -24,6 +24,17 @@ task("mint", "Mint new asset")
     console.log("Minted");
   });
 
+task("burn", "Burn token")
+  .addPositionalParam("address", "contract address")
+  .addPositionalParam("tokenId", "token ID")
+  .setAction(async (taskArgs, hre) => {
+    const signer = await hre.ethers.getSigner(0);
+    const nft = await hre.ethers.getContractAt("NFT", taskArgs.address);
+    await nft.burn(taskArgs.tokenId).then((tx) => tx.wait());
+
+    console.log("Burned", taskArgs.tokenId);
+  });
+
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */

@@ -6,8 +6,8 @@ import scenes from "./index.js";
 import NFTMock from "../mocks/nft.js";
 
 // Configurable constants
-const NFT_ADDRESS = "0x19b87B22110142E6334E3eDa97313AacfeD2f3F2";
-const DEV = true;
+const NFT_ADDRESS = "0x0Ed4EF318c4d69C00393e511027680670dA6d77f";
+const DEV = false;
 
 function wait(ms) {
   return new Promise((resolve) => {
@@ -150,7 +150,6 @@ async function main(chip, provider, signer) {
     chip.address,
     chip.tankIndex
   );
-  console.log(tokenId.toString());
   chip.metadata = await chip.contract.tokenURI(tokenId);
 
   const attribute = await fetch(chip.metadata).then((res) => res.json());

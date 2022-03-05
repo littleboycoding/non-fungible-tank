@@ -1,0 +1,60 @@
+
+ÔÌ{
+  "name": "Everforest",
+  "description": "Reliable, classic tank",
+  "image": "https://ipfs.io/ipfs/QmSzXaQY5GQmtAJKed8mZbB5BUGm7Q86JadStXqoqMY5eY?filename=everforest.png",
+  "health": 10,
+  "speed": 1.5,
+  "rotateSpeed": 2.5,
+  "projectileSpeed": 2.5,
+  "firerate": 500,
+  "damage": 2,
+  "cannonOrigin": {
+    "x": 9.515,
+    "y": 9.475
+  },
+  "background_color": "8DA372",
+  "attributes": [
+    {
+      "trait_type": "Skill",
+      "value": "Evergreen"
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Health",
+      "value": 10
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Damage",
+      "value": 2
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Speed",
+      "value": 1.5
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Firerate",
+      "value": 500
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Projectile speed",
+      "value": 2.5
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Rotate speed",
+      "value": 2.5
+    }
+  ],
+  "assets": {
+    "behavior": "https://ipfs.io/ipfs/QmfKPuawKDSWBp5mZKFk72vHMh4adPhMpoZiTqvejZkZAJ?filename=behavior.js",
+    "body": "https://ipfs.io/ipfs/QmVQfrmrMdysTEmJZzpy26RsSyHuyc4WTgW8x7LuMfp6tk?filename=body.png",
+    "cannon": "https://ipfs.io/ipfs/QmeqYe6TMiMUMRoJ1yA74QKLR8FMeHjJeRiHLkUYV6Dq4j?filename=cannon.png",
+    "bullet": "https://ipfs.io/ipfs/QmbE3fRTaieGwefo9m6GnSsxaBcxcoVtRggDETfR6S2MBT?filename=bullet.png"
+  }
+}
+Ì

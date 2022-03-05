@@ -1,6 +1,9 @@
 import faker from "https://unpkg.com/@faker-js/faker@6.0.0-alpha.7/dist/esm/index.js?module";
 
-const Metadatas = ["/examples/everforest/metadata.json"];
+const Metadatas = [
+  "/examples/everforest/metadata.json",
+  "/examples/rocket_box/metadata.json",
+];
 
 /**
  * NFT Contract mockup for testing purpose.

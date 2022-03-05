@@ -4,7 +4,15 @@ import { Blob } from "../chip/index.js";
 class Tank extends Blob {
   constructor(
     sprite,
-    { speed, metadata, rotateSpeed, movingTo = false, health, cannon }
+    {
+      speed,
+      metadata,
+      rotateSpeed,
+      movingTo = false,
+      health,
+      cannon,
+      playerName,
+    }
   ) {
     super("tank", sprite, {
       speed,
@@ -14,6 +22,7 @@ class Tank extends Blob {
       health,
       knockback: [],
       cannon,
+      playerName,
       hurt: false,
       destructing: false,
     });
@@ -41,6 +50,7 @@ class Cannon extends Blob {
       bulletBehavior,
       bulletDamage,
       belongTo,
+      justShoot: false,
       hurt: false,
     });
   }

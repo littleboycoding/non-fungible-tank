@@ -3,6 +3,10 @@
 import { getAngleBetweenPoints, moveAtAngle } from "../chip/utils.js";
 import { Bullet } from "./index.js";
 
+function easeOutCubic(x) {
+  return 1 - (1 - x) ** 3;
+}
+
 function tankBehavior(chip, tank) {
   const shell = chip.shell.players.get(tank.uuid);
 
@@ -32,13 +36,12 @@ function tankBehavior(chip, tank) {
       if (chip.utils.nearestToCounterClockwise(tank.angle, angle))
         tank.decAngle(tank.state.rotateSpeed);
       else tank.incAngle(tank.state.rotateSpeed);
-      return;
+    } else {
+      const { x, y } = chip.utils.moveAtAngle(tank.state.speed, angle);
+
+      tank.x += x;
+      tank.y += y;
     }
-
-    const { x, y } = chip.utils.moveAtAngle(tank.state.speed, angle);
-
-    tank.x += x;
-    tank.y += y;
 
     const isArrived =
       translateX >= tank.state.movingTo.x - offset &&
@@ -79,6 +82,7 @@ function tankBehavior(chip, tank) {
       else {
         tank.destroyed = true;
         tank.state.cannon.destroyed = true;
+        tank.state.playerName.destroyed = true;
         setTimeout(() => {
           tank.opacity = 1;
           tank.state.destructing = false;
@@ -88,6 +92,7 @@ function tankBehavior(chip, tank) {
           tank.state.knockback = [];
           tank.destroyed = false;
           tank.state.cannon.destroyed = false;
+          tank.state.playerName.destroyed = false;
         }, 1000);
       }
     };
@@ -121,6 +126,7 @@ function cannonBehavior(chip, cannon) {
   // Shooting
   if (shell.mouseDown.has("Right") && !cannon.state.reloading) {
     cannon.state.reloading = true;
+    cannon.state.justShoot = true;
     const bullet = new Bullet(cannon.state.bullet, {
       speed: cannon.state.bulletSpeed,
       damage: cannon.state.bulletDamage,
@@ -137,13 +143,15 @@ function cannonBehavior(chip, cannon) {
     );
     bullet.angle = cannon.angle;
     bullet.origin = {
-      x: bullet.sprite.width / 2,
+      x: 0,
       y: bullet.sprite.height / 2,
     };
 
     setTimeout(() => {
       cannon.state.reloading = false;
     }, cannon.state.firerate);
+  } else {
+    cannon.state.justShoot = false;
   }
 }
 
@@ -175,10 +183,6 @@ function bulletBehavior(chip, bullet) {
   }
 }
 
-function easeOutCubic(x) {
-  return 1 - (1 - x) ** 3;
-}
-
 function buttonBehavior(chip, button) {
   const hover = chip.utils.isCollision(
     {
@@ -201,4 +205,19 @@ function buttonBehavior(chip, button) {
   }
 }
 
-export { tankBehavior, cannonBehavior, bulletBehavior, buttonBehavior };
+function playerNameBehavior(chip, name) {
+  const tank = chip.queryUUID(name.state.belongTo);
+
+  name.x = tank.x + tank.sprite.width / 2;
+  name.y = tank.y - 15;
+
+  name.destroyed = tank.destroyed;
+}
+
+export {
+  tankBehavior,
+  cannonBehavior,
+  bulletBehavior,
+  buttonBehavior,
+  playerNameBehavior,
+};

@@ -1,0 +1,18 @@
+const tank = (chip, tank) => {};
+
+const bullet = (chip, bullet) => {
+  bullet.state.speed += 0.07;
+};
+
+const cannon = (chip, cannon) => {
+  if (cannon.state.justShoot) {
+    const tank = chip.queryUUID(cannon.state.belongTo);
+    tank.state.knockback.push({
+      progress: 1,
+      force: 5,
+      angle: (cannon.angle + 180) % 360,
+    });
+  }
+};
+
+export { tank, cannon, bullet };

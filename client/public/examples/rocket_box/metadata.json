@@ -1,0 +1,58 @@
+{
+  "name": "Rocket Box",
+  "description": "Launch rocket explosive that deal massive damage",
+  "image": "https://ipfs.io/ipfs/QmUKY4drPZuob5kxRcuHvpyLG5UeptUPiPJrq9aA6YgsMa?filename=rocket_box.png",
+  "health": 15,
+  "speed": 1.5,
+  "rotateSpeed": 2.5,
+  "projectileSpeed": 1,
+  "firerate": 1500,
+  "damage": 10,
+  "cannonOrigin": {
+    "x": 6,
+    "y": 8
+  },
+  "background_color": "D28E8A",
+  "attributes": [
+    {
+      "trait_type": "Skill",
+      "value": "Explosive rocket"
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Health",
+      "value": 15
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Damage",
+      "value": 10
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Speed",
+      "value": 1.5
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Firerate",
+      "value": 1500
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Projectile speed",
+      "value": 1
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Rotate speed",
+      "value": 2.5
+    }
+  ],
+  "assets": {
+    "behavior": "https://ipfs.io/ipfs/QmYgJ7naGp5q7jTnC1dN7Cb8SfVcwW8XbphmespzrAHxMz?filename=behavior.js",
+    "body": "https://ipfs.io/ipfs/QmYWgtzm6GWruthyzcpiJjhvcPcMgKFrRTPLwanirVKwaK?filename=body.png",
+    "cannon": "https://ipfs.io/ipfs/Qmert4oKQV8x5wvK68hiAQf6FEsoohpxd7Nj2a7Ke4PFD2?filename=cannon.png",
+    "bullet": "https://ipfs.io/ipfs/QmfZN8ygciddwEKxAp5fKLig9qL7CjnrnMeLkVuhpkbg7K?filename=bullet.png"
+  }
+}
