@@ -7,7 +7,7 @@ import NFTMock from "../mocks/nft.js";
 
 // Configurable constants
 const NFT_ADDRESS = "0x0Ed4EF318c4d69C00393e511027680670dA6d77f";
-const DEV = false;
+const DEV = true;
 
 function wait(ms) {
   return new Promise((resolve) => {

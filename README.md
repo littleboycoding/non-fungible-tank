@@ -16,7 +16,9 @@ The tank itself is an asset which is unique and truly own by player, allow playe
 
 ## Gameplay
 
-> To be implemented.
+![Rocket Box vs Everforest](./everforest_rocketbox.gif)
+
+Casual two tanks fighting.
 
 ## Setup
 
