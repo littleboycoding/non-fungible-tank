@@ -25,8 +25,8 @@ function verifyMetadata(metadata) {
     metadata.rotateSpeed &&
     metadata.projectileSpeed &&
     metadata.firerate &&
-    metadata.cannonOrigin?.x &&
-    metadata.cannonOrigin?.y;
+    metadata.cannonOrigin?.x !== undefined &&
+    metadata.cannonOrigin?.y !== undefined;
 
   return behavior && bitmap && attribute;
 }
@@ -94,6 +94,7 @@ async function spawnAt(chip, address, metadata, x, y) {
     rotateSpeed: metadata.rotateSpeed,
     cannon,
     playerName,
+    clashable: true,
   })
     .addBehavior(tankBehavior)
     .addBehavior(behavior.tank);

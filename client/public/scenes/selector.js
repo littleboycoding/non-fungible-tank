@@ -69,6 +69,12 @@ function navigateBehavior(
         ]);
         const sprite = await fetchAsBitmap(attribute.image);
         preview.sprite = sprite;
+        preview.origin = {
+          x: sprite.width / 2,
+          y: sprite.height / 2,
+        };
+        preview.x = 300 - sprite.width / 2;
+        preview.y = 300 - (10 + sprite.height / 2);
         name.text = attribute.name;
         description.text = attribute.description;
         preview.destroyed = false;
@@ -207,7 +213,7 @@ async function main(chip, provider, signer) {
   );
 
   Spinner.destroyed = true;
-  chip.spawn(Preview, 300 - tank.width / 2, 300 - tank.height / 2);
+  chip.spawn(Preview, 300 - tank.width / 2, 300 - (10 + tank.height / 2));
   chip.spawn(Name, 300, 40 + 300 + tank.height / 2);
   chip.spawn(Description, 300, 70 + 300 + tank.height / 2);
   chip.spawn(Deploy, 300 - deploy.width / 2, 525 - deploy.height);

@@ -1,0 +1,60 @@
+
+îæ{
+  "name": "Auto Pilot",
+  "description": "Launch aircraft that fly toward to other tanks.",
+  "image": "https://ipfs.io/ipfs/QmXczuxEXaWxo7dEk4ShFjBWg2B2vsMf5HJnLBDn5JY2Kc?filename=auto_pilot.png",
+  "health": 10,
+  "speed": 2.0,
+  "rotateSpeed": 2.0,
+  "projectileSpeed": 2.3,
+  "firerate": 1200,
+  "damage": 3,
+  "cannonOrigin": {
+    "x": 12,
+    "y": 11.43
+  },
+  "background_color": "D8D3AD",
+  "attributes": [
+    {
+      "trait_type": "Skill",
+      "value": "Launch Aircraft"
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Health",
+      "value": 10
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Damage",
+      "value": 3
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Speed",
+      "value": 2
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Firerate",
+      "value": 1200
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Projectile speed",
+      "value": 2.3
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Rotate speed",
+      "value": 2
+    }
+  ],
+  "assets": {
+    "behavior": "https://ipfs.io/ipfs/QmdvXGiR1S4RtM6AMzozXwGFezaakSADJkX8pfjafgEGSQ?filename=behavior.js",
+    "body": "https://ipfs.io/ipfs/QmZeWnJc2wr9E7pUbXctqAV51RPVmaUAXdd7iFVtLHmkR3?filename=body.png",
+    "cannon": "https://ipfs.io/ipfs/QmZ4S9FXeoMu5N2es1gynxX7HwTMieBi9KEPjBBffB5y8y?filename=cannon.png",
+    "bullet": "https://ipfs.io/ipfs/QmaZG7fsgF6cAeNs9ppjSfi2HhLoTFkHBsQxJqdmAPGgT1?filename=bullet.png"
+  }
+}
+æ

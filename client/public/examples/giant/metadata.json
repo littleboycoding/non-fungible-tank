@@ -1,0 +1,58 @@
+{
+  "name": "Giant",
+  "description": "Tough, unbreakable tank",
+  "image": "https://ipfs.io/ipfs/QmWYaW6qtTVvFTMBbU3gtJBaa9n2Q4zDGnbNV2Egiz5D6G?filename=giant.png",
+  "health": 35,
+  "speed": 1.1,
+  "rotateSpeed": 1.5,
+  "projectileSpeed": 1.5,
+  "firerate": 1000,
+  "damage": 9.9,
+  "cannonOrigin": {
+    "x": 17.81,
+    "y": 17.89
+  },
+  "background_color": "5F5F5F",
+  "attributes": [
+    {
+      "trait_type": "Skill",
+      "value": "Clash"
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Health",
+      "value": 35
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Damage",
+      "value": 9.9
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Speed",
+      "value": 1.1
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Firerate",
+      "value": 1000
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Projectile speed",
+      "value": 1.5
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Rotate speed",
+      "value": 1.5
+    }
+  ],
+  "assets": {
+    "behavior": "https://ipfs.io/ipfs/QmRq49xizpA6f4XhNxsU38FLC2oG4ZPYt3ppgbm8zQ49ss?filename=behavior.js",
+    "body": "https://ipfs.io/ipfs/QmYPpFwUpVY7Eyikwv1YHRUwqvibz3nBcfsYysEZPuX6rV?filename=body.png",
+    "cannon": "https://ipfs.io/ipfs/QmXaQzrxwyF3QYwYHXLcj3Y7sXcuNmGe8Bf9eytLHpMCCi?filename=cannon.png",
+    "bullet": "https://ipfs.io/ipfs/QmXQD9ybaTYx6JBoa5q3tL4Vafz4peZYiXyNLf8UEsv77o?filename=bullet.png"
+  }
+}

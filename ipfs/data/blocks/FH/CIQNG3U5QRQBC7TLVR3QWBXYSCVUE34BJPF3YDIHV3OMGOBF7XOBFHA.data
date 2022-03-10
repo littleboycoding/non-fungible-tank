@@ -1,0 +1,60 @@
+
+êâ{
+  "name": "Flamethrower",
+  "description": "Burn them all with rapidly close range flame.",
+  "image": "https://ipfs.io/ipfs/QmTwUEiK88UQANY13rXPRj4Czp6CgqgbrGF8QAw5rTCHkS?filename=flamethrower.png",
+  "health": 15,
+  "speed": 2.5,
+  "rotateSpeed": 2.5,
+  "projectileSpeed": 4,
+  "firerate": 50,
+  "damage": 0.6,
+  "cannonOrigin": {
+    "x": 12,
+    "y": 8.5
+  },
+  "background_color": "FFDE9F",
+  "attributes": [
+    {
+      "trait_type": "Skill",
+      "value": "Hell flames"
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Health",
+      "value": 15
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Damage",
+      "value": 0.6
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Speed",
+      "value": 2.5
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Firerate",
+      "value": 50
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Projectile speed",
+      "value": 4
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Rotate speed",
+      "value": 2.5
+    }
+  ],
+  "assets": {
+    "behavior": "https://ipfs.io/ipfs/Qmd9ijKbLZMRXWj4cBjPSnbTqxjKbEdwqkAR54rpaEaRpy?filename=behavior.js",
+    "body": "https://ipfs.io/ipfs/QmaMtfkNccn5m78nAPVc7AJzM3oNTw1P1zNxzbBMWtG9uQ?filename=body.png",
+    "cannon": "https://ipfs.io/ipfs/QmNnuGLiiKhCTRTFMbvRTVEHZRpY5h8LeKWmQ7xDoCgapV?filename=cannon.png",
+    "bullet": "https://ipfs.io/ipfs/QmSbzpxJxGZ2hHidnZDzDh4b4dhzpusPEqN8RT1yXVGiio?filename=bullet.png"
+  }
+}
+â

@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "http-server public",
-    "build": "docker build -t nft-client ."
+    "build": "docker build -t nft-client .",
+    "create": "node scripts/create.js"
   },
   "keywords": [],
   "author": "",

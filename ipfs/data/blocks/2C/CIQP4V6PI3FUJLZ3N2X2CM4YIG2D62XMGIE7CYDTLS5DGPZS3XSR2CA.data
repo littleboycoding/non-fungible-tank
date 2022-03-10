@@ -1,0 +1,62 @@
+
+Š
+‚
+{
+  "name": "Morning Coffee",
+  "description": "Quick, speedy, energized by morning coffee.",
+  "image": "/examples/morning_coffee/assets/morning_coffee.png",
+  "health": 10,
+  "speed": 2.5,
+  "rotateSpeed": 4.0,
+  "projectileSpeed": 3.3,
+  "firerate": 250,
+  "damage": 1,
+  "cannonOrigin": {
+    "x": 8.5,
+    "y": 11.5
+  },
+  "background_color": "A67F71",
+  "attributes": [
+    {
+      "trait_type": "Skill",
+      "value": "Speedy"
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Health",
+      "value": 10
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Damage",
+      "value": 1
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Speed",
+      "value": 2.5
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Firerate",
+      "value": 250
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Projectile speed",
+      "value": 3.3
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Rotate speed",
+      "value": 4.0
+    }
+  ],
+  "assets": {
+    "behavior": "/examples/morning_coffee/assets/behavior.js",
+    "body": "/examples/morning_coffee/assets/body.png",
+    "cannon": "/examples/morning_coffee/assets/cannon.png",
+    "bullet": "/examples/morning_coffee/assets/bullet.png"
+  }
+}
+‚

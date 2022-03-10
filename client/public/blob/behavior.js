@@ -1,6 +1,7 @@
 // Standard behavior
 
 import { getAngleBetweenPoints, moveAtAngle } from "../chip/utils.js";
+import { cannon } from "../examples/double/assets/behavior.js";
 import { Bullet } from "./index.js";
 
 function easeOutCubic(x) {
@@ -66,7 +67,12 @@ function tankBehavior(chip, tank) {
 
   const tanks = chip.queryBlob("tank");
   for (let i = 0; i < tanks.length; i++) {
-    if (tank.uuid !== tanks[i].uuid && chip.utils.isCollision(tank, tanks[i])) {
+    if (
+      tank.uuid !== tanks[i].uuid &&
+      chip.utils.isCollision(tank, tanks[i]) &&
+      tank.state.clashable &&
+      tanks[i].state.clashable
+    ) {
       tank.state.health = 0;
       tanks[i].state.health = 0;
     }
@@ -104,16 +110,16 @@ function cannonBehavior(chip, cannon) {
   const tank = chip.queryUUID(cannon.state.belongTo);
   const shell = chip.shell.players.get(tank.uuid);
 
+  // Pin cannon to it belong tank
+  cannon.x = tank.x + tank.sprite.width / 2 - cannon.origin.x;
+  cannon.y = tank.y + tank.sprite.height / 2 - cannon.sprite.height / 2;
+
   // Check if tank destroyed
   cannon.destroyed = tank.destroyed;
   cannon.state.hurt = tank.state.hurt;
   cannon.opacity = tank.opacity;
   if (cannon.destroyed) return;
   if (tank.state.destructing) return;
-
-  // Pin cannon to it belong tank
-  cannon.x = tank.x + tank.sprite.width / 2 - cannon.origin.x;
-  cannon.y = tank.y + tank.sprite.height / 2 - cannon.sprite.height / 2;
 
   // Rotate to mouse
   cannon.angle = chip.utils.getAngleBetweenPoints(
@@ -125,27 +131,14 @@ function cannonBehavior(chip, cannon) {
 
   // Shooting
   if (shell.mouseDown.has("Right") && !cannon.state.reloading) {
+    cannon.state.shoot = true;
+  }
+
+  if (cannon.state.shoot) {
+    cannon.state.shoot = false;
     cannon.state.reloading = true;
     cannon.state.justShoot = true;
-    const bullet = new Bullet(cannon.state.bullet, {
-      speed: cannon.state.bulletSpeed,
-      damage: cannon.state.bulletDamage,
-      belongTo: cannon.state.belongTo,
-    })
-      .addBehavior(bulletBehavior)
-      .addBehavior(cannon.state.bulletBehavior);
-
-    const { x, y } = chip.utils.moveAtAngle(cannon.sprite.width, cannon.angle);
-    chip.spawn(
-      bullet,
-      cannon.x + cannon.origin.x + x,
-      cannon.y + cannon.sprite.height / 2 - bullet.sprite.height / 2 + y
-    );
-    bullet.angle = cannon.angle;
-    bullet.origin = {
-      x: 0,
-      y: bullet.sprite.height / 2,
-    };
+    cannon.shoot(chip);
 
     setTimeout(() => {
       cannon.state.reloading = false;

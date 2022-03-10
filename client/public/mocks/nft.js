@@ -3,6 +3,11 @@ import faker from "https://unpkg.com/@faker-js/faker@6.0.0-alpha.7/dist/esm/inde
 const Metadatas = [
   "/examples/everforest/metadata.json",
   "/examples/rocket_box/metadata.json",
+  "/examples/morning_coffee/metadata.json",
+  "/examples/auto_pilot/metadata.json",
+  "/examples/flamethrower/metadata.json",
+  "/examples/double/metadata.json",
+  "/examples/giant/metadata.json",
 ];
 
 /**
