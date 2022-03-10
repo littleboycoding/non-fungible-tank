@@ -19,3 +19,13 @@ services:
       - PORT=5000
     ports:
       - 5000:5000
+      
+  ipfs:
+    image: ipfs/go-ipfs
+    ports:
+      - 4001:4001
+      - 5001:5001
+      - 8080:8080
+    volumes:
+      - ./ipfs/data:/data/ipfs
+      - ./ipfs/staging:/export
