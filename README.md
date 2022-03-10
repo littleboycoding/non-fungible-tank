@@ -31,7 +31,7 @@ This project use docker & compose, make it easy to deploy and run.
 ```sh
 $ git clone https://github.com/littleboycoding/non-fungible-tank.git
 $ cd non-fungible-tank
-$ compose up
+$ docker compose up
 ```
 
 Now open up http://localhost:5000 in your web browser.
