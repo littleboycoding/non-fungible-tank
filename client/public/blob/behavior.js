@@ -79,6 +79,7 @@ function tankBehavior(chip, tank) {
   }
 
   if (tank.state.health <= 0 && !tank.state.destructing) {
+    new Audio("/sfx/explosion.wav").play();
     tank.state.destructing = 5;
     tank.state.movingTo = false;
     const toggle = () => {
@@ -161,6 +162,7 @@ function bulletBehavior(chip, bullet) {
       tank.uuid !== bullet.state.belongTo &&
       chip.utils.isCollision(bullet, tank)
     ) {
+      new Audio("/sfx/hitHurt.wav").play();
       tank.state.knockback.push({
         angle: bullet.angle,
         progress: 1,
@@ -190,6 +192,7 @@ function buttonBehavior(chip, button) {
   );
 
   if (hover) {
+    if (chip.mousedown.has("Left")) chip.sfx.select.play();
     button.sprite = button.hover;
     button.hovering = true;
   } else {

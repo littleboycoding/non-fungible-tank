@@ -72,6 +72,7 @@ class Cannon extends Blob {
   }
 
   shoot(chip) {
+    new Audio("/sfx/shoot.wav").play();
     const bullet = this._bulletBlob();
     const { x, y } = moveAtAngle(this.sprite.width, this.angle);
     chip.spawn(
