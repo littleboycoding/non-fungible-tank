@@ -1,6 +1,6 @@
 # Non-fungible Tank
 
-![banner](./banner.png)
+![banner](./assets/banner.png)
 
 Non-fungible-tank or NFT is NFT-based real-time multiplayer tank game where you play as tank to destroy other.
 
@@ -8,7 +8,7 @@ The tank itself is an asset which is unique and truly own by player, allow playe
 
 [Browse on OpenSea (Testnet)](https://testnets.opensea.io/collection/non-fungible-tank)
 
-## Content table
+## Table of contents
 
 - [Gameplay](#gameplay)
 - [Setup](#setup)
@@ -18,11 +18,11 @@ The tank itself is an asset which is unique and truly own by player, allow playe
 
 Casual two tanks fighting 🚀
 
-![Rocket Box vs Everforest](./everforest_rocketbox.gif)
+![Rocket Box vs Everforest](./assets/everforest_rocketbox.gif)
 
 Gigantic clashing tank 💥
 
-![Rocket Box vs Everforest](./giant_flamethrower.gif)
+![Rocket Box vs Everforest](./assets/giant_flamethrower.gif)
 
 ## Setup
 
