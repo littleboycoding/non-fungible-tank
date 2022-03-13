@@ -5,9 +5,9 @@ services:
     expose:
       - 8080
     environment:
-      - PORT=8080
+      - PORT=5050
     ports:
-      - 8080:8080
+      - 5050:5050
 
   client:
     build: ./client
